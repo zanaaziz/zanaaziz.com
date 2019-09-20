@@ -10,16 +10,33 @@ import {
     MatButtonModule
 } from "@angular/material";
 
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { HomeComponent } from './routes/home/home.component';
+import { AboutComponent } from './routes/about/about.component';
+import { PortfolioComponent } from './routes/portfolio/portfolio.component';
+import { ContactComponent } from './routes/contact/contact.component';
+
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        HomeComponent,
+        AboutComponent,
+        PortfolioComponent,
+        ContactComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MatIconModule,
-        MatButtonModule
+        MatButtonModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule
     ],
     providers: [],
     bootstrap: [AppComponent]

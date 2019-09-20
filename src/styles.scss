@@ -7,11 +7,12 @@ $zanadaniel-theme: mat-light-theme($zanadaniel-primary, $zanadaniel-accent, $zan
 @include angular-material-theme($zanadaniel-theme);
 
 html, body {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #FFFFFF !important;
+    margin: 0 !important;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
 }
