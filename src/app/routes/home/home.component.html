@@ -1,1 +1,8 @@
-<p>home works!</p>
+<div class="wrapper">
+    <div>
+        <h1 [ngStyle]="{ 'font-size': isMobile ? '3em' : '5em' }">Zana Daniel</h1>
+        <h2 [ngStyle]="{ 'font-size': isMobile ? '1.25em' : '1.5em' }">Web &amp; Software Developer</h2>
+
+        <button mat-flat-button color="primary" [routerLink]="['/about']"><mat-icon>person_add</mat-icon>Get to know me</button>
+    </div>
+</div>
