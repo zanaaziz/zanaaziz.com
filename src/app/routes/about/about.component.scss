@@ -1,0 +1,27 @@
+.mdc-layout-grid__inner {
+    margin-top: 1em;
+}
+
+.wrap-center {
+    max-width: 50em;
+    margin: 0 auto;
+}
+
+p {
+    line-height: 1.25em;
+    letter-spacing: 0.025em;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+button {
+    margin-top: 1em;
+    width: 100%;
+
+    span, .mat-icon {
+        vertical-align: middle;
+        margin: 0 0.125em;
+    }
+}

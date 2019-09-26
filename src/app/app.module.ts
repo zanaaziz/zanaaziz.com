@@ -6,18 +6,22 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
+    MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressBarModule,
+    MatDividerModule,
+    MatMenuModule
 } from "@angular/material";
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './routes/home/home.component';
 import { AboutComponent } from './routes/about/about.component';
 import { PortfolioComponent } from './routes/portfolio/portfolio.component';
 import { ContactComponent } from './routes/contact/contact.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { FooterComponent } from './footer/footer.component';
+import { BlogComponent } from './routes/blog/blog.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +29,10 @@ import { ContactComponent } from './routes/contact/contact.component';
         HomeComponent,
         AboutComponent,
         PortfolioComponent,
-        ContactComponent
+        ContactComponent,
+        NavigationComponent,
+        FooterComponent,
+        BlogComponent
     ],
     imports: [
         BrowserModule,
@@ -35,8 +42,9 @@ import { ContactComponent } from './routes/contact/contact.component';
         MatButtonModule,
         LayoutModule,
         MatToolbarModule,
-        MatSidenavModule,
-        MatListModule
+        MatProgressBarModule,
+        MatDividerModule,
+        MatMenuModule
     ],
     providers: [],
     bootstrap: [AppComponent]

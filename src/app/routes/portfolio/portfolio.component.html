@@ -1,1 +1,115 @@
-<p>portfolio works!</p>
+<div class="mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-12">
+        <div class="wrap-center">
+            <h1>Background</h1>
+
+            <p>
+                In my professional career, I have done extensive work in <span class="bold">web development</span> using modern frameworks such as <span class="bold">Angular</span> to power robust single page applications. I'm also familiar with implementing CI/CD pipelines, Docker containers, and Kubernetes.
+            </p>
+
+            <p>
+                As a <span class="bold">software developer</span>, I've taken <span class="bold">lead roles</span> in the creation of <span class="bold">large-scale enterprise-level applications</span> with thousands of active users for <span class="bold">multinational</span> companies.
+            </p>
+        </div>
+    </div>
+
+    <div class="mdc-layout-grid__cell--span-12">
+        <div class="wrap-center">
+            <h1>Skills</h1>
+
+            <div class="skill">
+                <div class="details">
+                    <h2>Angular</h2>
+                    <h2>{{ skills['angular'] }}&#37;</h2>
+                </div>
+                
+                <mat-progress-bar color="primary" mode="determinate" [value]="skills['angular']"></mat-progress-bar>
+            </div>
+
+            <div class="skill">
+                <div class="details">
+                    <h2>Java</h2>
+                    <h2>{{ skills['java'] }}&#37;</h2>
+                </div>
+
+                <mat-progress-bar color="primary" mode="determinate" [value]="skills['java']"></mat-progress-bar>
+            </div>
+
+            <div class="skill">
+                <div class="details">
+                    <h2>Python</h2>
+                    <h2>{{ skills['python'] }}&#37;</h2>
+                </div>
+
+                <mat-progress-bar color="primary" mode="determinate" [value]="skills['python']"></mat-progress-bar>
+            </div>
+
+            <div class="skill">
+                <div class="details">
+                    <h2>HTML</h2>
+                    <h2>{{ skills['html'] }}&#37;</h2>
+                </div>
+
+                <mat-progress-bar color="primary" mode="determinate" [value]="skills['html']"></mat-progress-bar>
+            </div>
+
+            <div class="skill">
+                <div class="details">
+                    <h2>CSS</h2>
+                    <h2>{{ skills['css'] }}&#37;</h2>
+                </div>
+
+                <mat-progress-bar color="primary" mode="determinate" [value]="skills['css']"></mat-progress-bar>
+            </div>
+
+            <div class="skill">
+                <div class="details">
+                    <h2>JavaScript</h2>
+                    <h2>{{ skills['javascript'] }}&#37;</h2>
+                </div>
+
+                <mat-progress-bar color="primary" mode="determinate" [value]="skills['javascript']"></mat-progress-bar>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdc-layout-grid__cell--span-12">
+        <div class="wrap-center">
+            <h1>Experience</h1>
+
+            <div class="role">
+                <div class="details">
+                    <h2><mat-icon>bookmark</mat-icon><span>Web &amp; Software Developer</span></h2>
+                    <h2><mat-icon>account_balance</mat-icon><span>Dev Centre House Ltd.</span></h2>
+                    <h2><mat-icon>room</mat-icon><span>Unit G5, SPADE Enterprise Centre, North King Street, Dublin 7, D07 R634.</span></h2>
+                    <h2><mat-icon>today</mat-icon><span>June 2018 &mdash; Present</span></h2>
+                </div>
+
+                <div class="description">
+                    <p>
+                        As a web developer, I'm primarily focused on delivering the front-end, taking part in various projects for our clients using Angular to power cutting-edge web applications.
+                    </p>
+
+                    <p>
+                        As a software developer, I hold a lead role in developing programs using Java, the largest project of all was with ZAGG, a multinational company known for its line of protective coverings for consumer electronics and hand-held devices under the brand name InvisibleShield. The project focused on expanding their current infrastructure to support the desktop environment on all operating systems.
+                    </p>
+                </div>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="role">
+                <div class="details">
+                    <h2><mat-icon>bookmark</mat-icon><span>Freelance Developer</span></h2>
+                    <h2><mat-icon>today</mat-icon><span>August 2016 &mdash; June 2018</span></h2>
+                </div>
+
+                <div class="description">
+                    <p>
+                        As a freelance developer, I got around to some nifty projects through platforms such as Upwork and even some friends &amp; family. Most of the projects I took on were five-page websites for small&mdash;medium sized organizations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

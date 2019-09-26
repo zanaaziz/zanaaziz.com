@@ -1,0 +1,72 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <a class="brand" [routerLink]="['/']">
+            <img src="assets/images/zanadaniel.jpg" alt="Image of Zana Daniel">
+            <span>Zana Daniel</span>
+        </a>
+
+        <span class="fill-space"></span>
+
+        <!-- desktop -->
+        <ng-container *ngIf="!isMobile">
+            <button mat-button [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <mat-icon>home</mat-icon>
+                Home
+            </button>
+
+            <button mat-button [routerLink]="['/about']" routerLinkActive="active">
+                <mat-icon>account_circle</mat-icon>
+                About
+            </button>
+
+            <button mat-button [routerLink]="['/portfolio']" routerLinkActive="active">
+                <mat-icon>assignment</mat-icon>
+                Portfolio
+            </button>
+
+            <button mat-button [routerLink]="['/blog']" routerLinkActive="active">
+                <mat-icon>create</mat-icon>
+                Blog
+            </button>
+
+            <button mat-button [routerLink]="['/contact']" routerLinkActive="active">
+                <mat-icon>forum</mat-icon>
+                Contact
+            </button>
+        </ng-container>
+
+        <!-- mobile -->
+        <ng-container *ngIf="isMobile">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <mat-icon>home</mat-icon>
+                    Home
+                </button>
+
+                <button mat-menu-item [routerLink]="['/about']" routerLinkActive="active">
+                    <mat-icon>account_circle</mat-icon>
+                    About
+                </button>
+
+                <button mat-menu-item [routerLink]="['/portfolio']" routerLinkActive="active">
+                    <mat-icon>assignment</mat-icon>
+                    Portfolio
+                </button>
+
+                <button mat-menu-item [routerLink]="['/blog']" routerLinkActive="active">
+                    <mat-icon>create</mat-icon>
+                    Blog
+                </button>
+
+                <button mat-menu-item [routerLink]="['/contact']" routerLinkActive="active">
+                    <mat-icon>forum</mat-icon>
+                    Contact
+                </button>
+            </mat-menu>
+        </ng-container>
+    </mat-toolbar-row>
+</mat-toolbar>
