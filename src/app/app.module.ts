@@ -11,7 +11,8 @@ import {
     MatButtonModule,
     MatProgressBarModule,
     MatDividerModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule
 } from "@angular/material";
 
 import { LayoutModule } from '@angular/cdk/layout';
@@ -44,7 +45,8 @@ import { BlogComponent } from './routes/blog/blog.component';
         MatToolbarModule,
         MatProgressBarModule,
         MatDividerModule,
-        MatMenuModule
+        MatMenuModule,
+        MatTooltipModule
     ],
     providers: [],
     bootstrap: [AppComponent]

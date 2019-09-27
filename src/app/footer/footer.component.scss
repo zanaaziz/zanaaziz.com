@@ -1,0 +1,36 @@
+footer {
+	color: rgba(0, 0, 0, 0.5);
+	font-size: 0.75em;
+    text-align: center;
+
+	ul {
+		text-align: center;
+		padding: 0;
+		margin: 0;
+		font-size: 1.5em;
+
+		li {
+			display: inline;
+			margin: 0 0.25em 0 0.25em;
+		}
+	}
+}
+
+a {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+a:hover {
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-divider {
+	padding: 1em 0;
+}
+
+.push-to-bottom {
+    position: absolute;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+}
