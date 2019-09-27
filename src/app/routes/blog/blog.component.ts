@@ -35,15 +35,15 @@ export class BlogComponent implements OnInit {
 
         setTimeout(() => {
             this.showIcon = true;
-        }, 500);
+        }, 250);
 
         setTimeout(() => {
             this.showHeader = true;
-        }, 1500);
+        }, 1250);
 
         setTimeout(() => {
             this.showSubHeader = true;
-        }, 2500);
+        }, 2250);
     }
 
 }

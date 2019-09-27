@@ -37,15 +37,15 @@ export class HomeComponent implements OnInit {
 
         setTimeout(() => {
             this.showName = true;
-        }, 500);
+        }, 250);
 
         setTimeout(() => {
             this.showTitle = true;
-        }, 1500);
+        }, 1250);
 
         setTimeout(() => {
             this.showButton = true;
-        }, 2500);
+        }, 2250);
     }
 
 }
