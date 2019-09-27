@@ -1,7 +1,7 @@
 <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell--span-12">
-        <mat-icon class="large" [ngStyle]="{ 'font-size': isMobile ? '5em' : '10em' }">build</mat-icon>
-        <h1 [ngStyle]="{ 'font-size': isMobile ? '1.25em' : '2em' }">Making some renovations here</h1>
-        <h2 [ngStyle]="{ 'font-size': isMobile ? '1em' : '1.5em' }">Please come back again soon!</h2>
+        <mat-icon class="large" [ngStyle]="{ 'font-size': isMobile ? '5em' : '10em' }" [@fadeIn]="showIcon ? 'visible' : 'invisible'">build</mat-icon>
+        <h1 [ngStyle]="{ 'font-size': isMobile ? '1.25em' : '2em' }" [@fadeIn]="showHeader ? 'visible' : 'invisible'">Making some renovations here</h1>
+        <h2 [ngStyle]="{ 'font-size': isMobile ? '1em' : '1.5em' }" [@fadeIn]="showSubHeader ? 'visible' : 'invisible'">Please come back again soon!</h2>
     </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell--span-12">
+    <div class="mdc-layout-grid__cell--span-12" [@fadeIn]="showBackground ? 'visible' : 'invisible'">
         <div class="wrap-center">
             <h1>Background</h1>
 
@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="mdc-layout-grid__cell--span-12">
+    <div class="mdc-layout-grid__cell--span-12" [@fadeIn]="showSkills ? 'visible' : 'invisible'">
         <div class="wrap-center">
             <h1>Skills</h1>
 
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-    <div class="mdc-layout-grid__cell--span-12">
+    <div class="mdc-layout-grid__cell--span-12" [@fadeIn]="showExperience ? 'visible' : 'invisible'">
         <div class="wrap-center">
             <h1>Experience</h1>
 

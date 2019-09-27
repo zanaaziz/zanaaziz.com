@@ -1,15 +1,15 @@
 <div class="mdc-layout-grid__inner">
     <div class="mdc-layout-grid__cell--span-12">
         <div class="wrap-center">
-            <mat-icon class="large">email</mat-icon>
+            <mat-icon class="large" [@fadeIn]="showIcon ? 'visible' : 'invisible'">email</mat-icon>
 
-            <h1>Get in touch</h1>
+            <h1 [@fadeIn]="showTitle ? 'visible' : 'invisible'">Get in touch</h1>
 
-            <p>
+            <p [@fadeIn]="showParagraph ? 'visible' : 'invisible'">
                 Feel free to contact me if you are interested in a project or would like to discuss anything in particular.
             </p>
 
-            <a mat-flat-button href="mailto:contact@zanadaniel.com" color="primary">contact@zanadaniel.com</a>
+            <a mat-flat-button href="mailto:contact@zanadaniel.com" color="primary" [@fadeIn]="showButton ? 'visible' : 'invisible'">contact@zanadaniel.com</a>
         </div>
     </div>
 </div>

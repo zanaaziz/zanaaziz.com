@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, Event } from '@angular/router';
+import { NavigationEnd, Router, Event, NavigationStart } from '@angular/router';
+import { fadeInAnimation } from '../animations';
 
 // google analytics
 declare var gtag;
@@ -7,25 +8,32 @@ declare var gtag;
 @Component({
     selector: 'app-footer',
     templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.scss']
+    styleUrls: ['./footer.component.scss'],
+    animations: [fadeInAnimation]
 })
 export class FooterComponent implements OnInit {
 
     constructor(private router: Router) { }
 
+    show: boolean = false;
     home: boolean;
     year = new Date().getFullYear();
+    timer: any;
 
     ngOnInit() {
         this.router.events
 		.subscribe(
 			(event: Event) => {
+                if (event instanceof NavigationStart) {
+                    clearTimeout(this.timer);
+                    this.show = false;
+                }
+
 				if (event instanceof NavigationEnd) {
-                    if (event instanceof NavigationEnd) {
-                        gtag('config', 'UA-109135410-4', {
-                            'page_path': event.urlAfterRedirects
-                        });
-                    }
+                    // google analytics track individual pageview
+                    gtag('config', 'UA-109135410-4', {
+                        'page_path': event.urlAfterRedirects
+                    });
 
                     // detect home route
 					if (window['location']['pathname'] === '/') {
@@ -35,6 +43,10 @@ export class FooterComponent implements OnInit {
                         this.home = false;
             
                     }
+
+                    this.timer = setTimeout(() => {
+                        this.show = true;
+                    }, 3000);
 				}
 			}
 		);

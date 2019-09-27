@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserverService } from '../shared/breakpoint-observer.service';
+import { fadeInAnimation } from '../animations';
 
 @Component({
     selector: 'app-navigation',
     templateUrl: './navigation.component.html',
-    styleUrls: ['./navigation.component.scss']
+    styleUrls: ['./navigation.component.scss'],
+    animations: [fadeInAnimation]
 })
 export class NavigationComponent implements OnInit {
 
@@ -12,6 +14,7 @@ export class NavigationComponent implements OnInit {
         private breakPointObserverService: BreakpointObserverService
     ) { }
 
+    show: boolean = false;
     isMobile: boolean;
 
     ngOnInit() {
@@ -22,6 +25,10 @@ export class NavigationComponent implements OnInit {
 				this.isMobile = result.matches;
             }
         );
+
+        setTimeout(() => {
+            this.show = true;
+        }, 250);
     }
     
 }

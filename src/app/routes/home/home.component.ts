@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { BreakpointObserverService } from 'src/app/shared/breakpoint-observer.service';
 import { Title } from '@angular/platform-browser';
+import { BreakpointObserverService } from 'src/app/shared/breakpoint-observer.service';
+import { fadeInAnimation } from 'src/app/animations';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    styleUrls: ['./home.component.scss'],
+    animations: [
+        fadeInAnimation
+    ]
 })
 export class HomeComponent implements OnInit {
 
@@ -15,11 +19,14 @@ export class HomeComponent implements OnInit {
     ) { }
 
     isMobile: boolean;
+    showName: boolean = false;
+    showTitle: boolean = false;
+    showButton: boolean = false;
 
     ngOnInit() {
         // set title
         this.title.setTitle('Home | Zana Daniel');
-
+        
         // detect screen size
         this.breakPointObserverService.isMobile()
 		.subscribe(
@@ -27,6 +34,18 @@ export class HomeComponent implements OnInit {
 				this.isMobile = result.matches;
             }
         );
+
+        setTimeout(() => {
+            this.showName = true;
+        }, 500);
+
+        setTimeout(() => {
+            this.showTitle = true;
+        }, 1500);
+
+        setTimeout(() => {
+            this.showButton = true;
+        }, 2500);
     }
 
 }
