@@ -16,3 +16,19 @@ body {
     margin: 0 !important;
     font-family: Roboto, "Helvetica Neue", sans-serif !important;
 }
+
+.spinner:not(.preserve) {
+	position: fixed !important;
+	left: 50% !important;
+	top: 40% !important;
+	z-index: 999 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	.mat-progress-spinner {
+		position: relative !important;
+		left: -50% !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+}

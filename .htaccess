@@ -1,5 +1,7 @@
 RewriteEngine On
 RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !=api.zanadaniel.com
+RewriteCond %{HTTP_HOST} !=www.api.zanadaniel.com
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

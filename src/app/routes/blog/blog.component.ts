@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserverService } from 'src/app/shared/breakpoint-observer.service';
 import { Title } from '@angular/platform-browser';
 import { fadeInAnimation } from 'src/app/animations';
+import { ApiService } from 'src/app/shared/api.service';
+import { Post } from 'src/app/shared/post.interface';
+import { MomentService } from 'src/app/shared/moment.service';
 
 @Component({
     selector: 'app-blog',
@@ -13,13 +16,19 @@ export class BlogComponent implements OnInit {
 
     constructor(
         private breakPointObserverService: BreakpointObserverService,
-        private title: Title
+        private title: Title,
+        private api: ApiService,
+        private moment: MomentService
     ) { }
 
-    showIcon: boolean = false;
-    showHeader: boolean = false;
-    showSubHeader: boolean = false;
+    show: boolean = false;
     isMobile: boolean;
+    posts: Post[] = [];
+    loading: boolean = true;
+
+    calculate(timestamp: string): string {
+        return this.moment.calculate(timestamp);
+    }
 
     ngOnInit() {
         // set title
@@ -33,17 +42,29 @@ export class BlogComponent implements OnInit {
             }
         );
 
-        setTimeout(() => {
-            this.showIcon = true;
-        }, 250);
+        this.api.posts()
+        .subscribe(
+            res => {
+                this.posts = res['data'];
+                this.loading = false;
+                this.api.showFooter.emit(true);
 
-        setTimeout(() => {
-            this.showHeader = true;
-        }, 1250);
+                setTimeout(() => {
+                    this.show = true;
+                }, 250);
 
-        setTimeout(() => {
-            this.showSubHeader = true;
-        }, 2250);
+            },
+            err => {
+                console.log(err);
+                this.loading = false;
+                this.api.showFooter.emit(true);
+
+                setTimeout(() => {
+                    this.show = true;
+                }, 250);
+                
+            }
+        );
     }
 
 }

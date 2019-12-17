@@ -12,7 +12,8 @@ import {
     MatProgressBarModule,
     MatDividerModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
 } from "@angular/material";
 
 import { LayoutModule } from '@angular/cdk/layout';
@@ -23,6 +24,8 @@ import { ContactComponent } from './routes/contact/contact.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogComponent } from './routes/blog/blog.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BlogPostComponent } from './routes/blog/blog-post/blog-post.component';
 
 @NgModule({
     declarations: [
@@ -33,17 +36,20 @@ import { BlogComponent } from './routes/blog/blog.component';
         ContactComponent,
         NavigationComponent,
         FooterComponent,
-        BlogComponent
+        BlogComponent,
+        BlogPostComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         MatIconModule,
         MatButtonModule,
         LayoutModule,
         MatToolbarModule,
         MatProgressBarModule,
+        MatProgressSpinnerModule,
         MatDividerModule,
         MatMenuModule,
         MatTooltipModule

@@ -1,7 +1,27 @@
-<div class="mdc-layout-grid__inner">
-    <div class="mdc-layout-grid__cell--span-12">
-        <mat-icon class="large" [ngStyle]="{ 'font-size': isMobile ? '5em' : '10em' }" [@fadeIn]="showIcon ? 'visible' : 'invisible'">build</mat-icon>
-        <h1 [ngStyle]="{ 'font-size': isMobile ? '1.25em' : '2em' }" [@fadeIn]="showHeader ? 'visible' : 'invisible'">Making some renovations here</h1>
-        <h2 [ngStyle]="{ 'font-size': isMobile ? '1em' : '1.5em' }" [@fadeIn]="showSubHeader ? 'visible' : 'invisible'">Please come back again soon!</h2>
+<div class="spinner" *ngIf="loading"><mat-progress-spinner mode="indeterminate"></mat-progress-spinner></div>
+
+<div class="mdc-layout-grid__inner root" *ngIf="!loading" [@fadeIn]="show ? 'visible' : 'invisible'">
+    <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone" *ngFor="let post of posts; let i=index">
+        <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+                <a [routerLink]="['/blog/' + post['slug']]" [queryParams]="{ id: post['id'] }"><img [src]="post['image']" alt="Cover image of blog post"></a>
+            </div>
+
+            <div class="mdc-layout-grid__cell--span-9-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+                <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+                        <a [routerLink]="['/blog/' + post['slug']]" [queryParams]="{ id: post['id'] }"><span class="title" [ngStyle]="{ 'font-size': isMobile ? '1.25em' : '2em' }">{{ post['title'] }}</span></a>
+                    </div>
+
+                    <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+                        <a [routerLink]="['/blog/' + post['slug']]" [queryParams]="{ id: post['id'] }"><mat-icon>schedule</mat-icon><span class="timestamp" [ngStyle]="{ 'font-size': isMobile ? '0.75em' : '1em' }">{{ calculate(post['date']) }}</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone" *ngIf="isMobile && i !== posts.length-1">
+                <mat-divider></mat-divider>
+            </div>
+        </div>
     </div>
 </div>

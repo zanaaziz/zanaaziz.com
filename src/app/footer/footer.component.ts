@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, Event, NavigationStart } from '@angular/router';
 import { fadeInAnimation } from '../animations';
+import { ApiService } from '../shared/api.service';
 
 @Component({
     selector: 'app-footer',
@@ -10,7 +11,7 @@ import { fadeInAnimation } from '../animations';
 })
 export class FooterComponent implements OnInit {
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private api: ApiService) { }
 
     show: boolean = false;
     home: boolean;
@@ -36,12 +37,26 @@ export class FooterComponent implements OnInit {
             
                     }
 
-                    this.timer = setTimeout(() => {
-                        this.show = true;
-                    }, 3000);
+                    if (!window['location']['pathname'].includes('/blog')) {
+                        this.timer = setTimeout(() => {
+                            this.show = true;
+                        }, 3000);
+                    }
+                    
 				}
 			}
-		);
+        );
+        
+        this.api.showFooter
+        .subscribe(
+            (show: boolean) => {
+                if (show && window['location']['pathname'].includes('/blog')) {
+                    this.timer = setTimeout(() => {
+                        this.show = true;
+                    }, 250);
+                }
+            }
+        );
 
     }
 
