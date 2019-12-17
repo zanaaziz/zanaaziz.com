@@ -26,6 +26,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BlogComponent } from './routes/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogPostComponent } from './routes/blog/blog-post/blog-post.component';
+import { NgxMdModule } from 'ngx-md';
 
 @NgModule({
     declarations: [
@@ -44,6 +45,7 @@ import { BlogPostComponent } from './routes/blog/blog-post/blog-post.component';
         AppRoutingModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        NgxMdModule.forRoot(),
         MatIconModule,
         MatButtonModule,
         LayoutModule,
