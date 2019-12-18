@@ -1,25 +1,23 @@
-<div class="mdc-layout-grid__inner">
+<div class="mdc-layout-grid__inner root">
     <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-        <div class="wrap-center">
-            <h1 [@fadeIn]="showTitle ? 'visible' : 'invisible'">What's my story?</h1>
+        <h1 [@fadeIn]="showTitle ? 'visible' : 'invisible'" class="no-margin-top">What's my story?</h1>
 
-            <p [@fadeIn]="showP1 ? 'visible' : 'invisible'">
-                Starting out at the age of 14, I never stopped learning new computer programming languages and skills.<br>
-                Early on, I began working with Java to make simple applications that I found interesting.<br>
-                Within a month, I knew this was absolutely what I wanted to do for the rest of my life.<br>
-                I wanted to learn more and expand my skills further.
-            </p>
+        <p [@fadeIn]="showP1 ? 'visible' : 'invisible'">
+            Starting out at the age of 14, I never stopped learning new computer programming languages and skills.<br>
+            Early on, I began working with Java to make simple applications that I found interesting.<br>
+            Within a month, I knew this was absolutely what I wanted to do for the rest of my life.<br>
+            I wanted to learn more and expand my skills further.
+        </p>
 
-            <p [@fadeIn]="showP2 ? 'visible' : 'invisible'">
-                I continued on to explore various different fields such as mobile app development, web development, and scientific computing.<br>
-                There was a great sense of satisfaction in learning these different languages and seeing things from different perspectives in doing so.<br>
-            </p>
+        <p [@fadeIn]="showP2 ? 'visible' : 'invisible'">
+            I continued on to explore various different fields such as mobile app development, web development, and scientific computing.<br>
+            There was a great sense of satisfaction in learning these different languages and seeing things from different perspectives in doing so.<br>
+        </p>
 
-            <p class="bold" [@fadeIn]="showP3 ? 'visible' : 'invisible'">
-                My mission statement is to produce true utility through software.
-            </p>
+        <p class="bold" [@fadeIn]="showP3 ? 'visible' : 'invisible'">
+            My mission statement is to produce true utility through software.
+        </p>
 
-            <button mat-flat-button color="primary" [routerLink]="['/portfolio']" [@fadeIn]="showButton ? 'visible' : 'invisible'"><mat-icon>subject</mat-icon><span>Read my Portfolio</span></button>
-        </div>
+        <button mat-flat-button color="primary" [routerLink]="['/portfolio']" [@fadeIn]="showButton ? 'visible' : 'invisible'"><mat-icon>subject</mat-icon><span>Read my Portfolio</span></button>
     </div>
 </div>

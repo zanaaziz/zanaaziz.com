@@ -6,6 +6,7 @@ import { MomentService } from 'src/app/shared/moment.service';
 import { BreakpointObserverService } from 'src/app/shared/breakpoint-observer.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Post } from 'src/app/shared/post.interface';
+import { PrismService } from 'src/app/shared/prism.service';
 
 @Component({
     selector: 'app-blog-post',
@@ -20,7 +21,8 @@ export class BlogPostComponent implements OnInit {
         private title: Title,
         private api: ApiService,
         private moment: MomentService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private prism: PrismService
     ) { }
 
     show: boolean = false;
@@ -56,6 +58,7 @@ export class BlogPostComponent implements OnInit {
                                     this.api.showFooter.emit(true);
                     
                                     setTimeout(() => {
+                                        this.prism.highlight();
                                         this.show = true;
                                     }, 250);
                     

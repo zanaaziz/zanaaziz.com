@@ -1,14 +1,14 @@
-.mdc-layout-grid__inner {
-    margin-top: 1em;
+.root {
+    margin: 2em auto 0 auto;
+    max-width: 50em;
+}
+
+.no-margin-top {
+    margin-top: 0;
 }
 
 .mat-divider {
     margin: 2.5em 0;
-}
-
-.wrap-center {
-    max-width: 50em;
-    margin: 0 auto;
 }
 
 p {

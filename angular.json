@@ -29,6 +29,8 @@
             ],
             "styles": [
                 "node_modules/@material/layout-grid/dist/mdc.layout-grid.min.css",
+                "node_modules/prismjs/plugins/toolbar/prism-toolbar.css",
+                "node_modules/prismjs/themes/prism.css",
                 "src/styles.scss"
             ],
             "scripts": []
