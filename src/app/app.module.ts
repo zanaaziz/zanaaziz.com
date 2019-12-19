@@ -13,7 +13,10 @@ import {
     MatDividerModule,
     MatMenuModule,
     MatTooltipModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSnackBarModule
 } from "@angular/material";
 
 import { LayoutModule } from '@angular/cdk/layout';
@@ -27,6 +30,10 @@ import { BlogComponent } from './routes/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogPostComponent } from './routes/blog/blog-post/blog-post.component';
 import { NgxMdModule } from 'ngx-md';
+import { LoginComponent } from './routes/dashboard/dashboard-login/dashboard-login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardBlogComponent } from './routes/dashboard/dashboard-blog/dashboard-blog.component';
+import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.component';
 
 @NgModule({
     declarations: [
@@ -38,13 +45,18 @@ import { NgxMdModule } from 'ngx-md';
         NavigationComponent,
         FooterComponent,
         BlogComponent,
-        BlogPostComponent
+        BlogPostComponent,
+        LoginComponent,
+        DashboardBlogComponent,
+        PageNotFoundComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        FormsModule,
+		ReactiveFormsModule,
         NgxMdModule.forRoot(),
         MatIconModule,
         MatButtonModule,
@@ -54,7 +66,10 @@ import { NgxMdModule } from 'ngx-md';
         MatProgressSpinnerModule,
         MatDividerModule,
         MatMenuModule,
-        MatTooltipModule
+        MatTooltipModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSnackBarModule
     ],
     providers: [],
     bootstrap: [AppComponent]

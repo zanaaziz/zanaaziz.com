@@ -6,6 +6,10 @@ import { PortfolioComponent } from './routes/portfolio/portfolio.component';
 import { ContactComponent } from './routes/contact/contact.component';
 import { BlogComponent } from './routes/blog/blog.component';
 import { BlogPostComponent } from './routes/blog/blog-post/blog-post.component';
+import { LoginComponent } from './routes/dashboard/dashboard-login/dashboard-login.component';
+import { DashboardBlogComponent } from './routes/dashboard/dashboard-blog/dashboard-blog.component';
+import { AuthGuard } from './shared/auth.guard';
+import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.component';
 
 const routes: Routes = [
     {
@@ -31,7 +35,20 @@ const routes: Routes = [
     {
 		path: 'contact',
 		component: ContactComponent
-	}
+    },
+    {
+        path: 'dashboard/login',
+        component: LoginComponent
+    },
+    {
+        path: 'dashboard/blog',
+        component: DashboardBlogComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
+    }
 ];
 
 @NgModule({

@@ -25,7 +25,7 @@
             </button>
 
             <button mat-button [routerLink]="['/blog']" routerLinkActive="active">
-                <mat-icon>create</mat-icon>
+                <mat-icon>public</mat-icon>
                 Blog
             </button>
 
@@ -33,6 +33,23 @@
                 <mat-icon>forum</mat-icon>
                 Contact
             </button>
+
+            <button mat-button [matMenuTriggerFor]="dashboard" *ngIf="authenticated">
+                <mat-icon>build</mat-icon>
+                Dashboard
+            </button>
+
+            <mat-menu #dashboard="matMenu">
+                <button mat-menu-item [routerLink]="['/dashboard/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <mat-icon>public</mat-icon>
+                    Blog
+                </button>
+
+                <button mat-menu-item (click)="onLogout()">
+                    <mat-icon>exit_to_app</mat-icon>
+                    Logout
+                </button>
+            </mat-menu>
         </ng-container>
 
         <!-- mobile -->
@@ -58,7 +75,7 @@
                 </button>
 
                 <button mat-menu-item [routerLink]="['/blog']" routerLinkActive="active">
-                    <mat-icon>create</mat-icon>
+                    <mat-icon>public</mat-icon>
                     Blog
                 </button>
 
@@ -66,6 +83,23 @@
                     <mat-icon>forum</mat-icon>
                     Contact
                 </button>
+
+                <button mat-menu-item [matMenuTriggerFor]="dashboard" *ngIf="authenticated">
+                    <mat-icon>build</mat-icon>
+                    Dashboard
+                </button>
+    
+                <mat-menu #dashboard="matMenu">
+                    <button mat-menu-item [routerLink]="['/dashboard/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <mat-icon>public</mat-icon>
+                        Blog
+                    </button>
+    
+                    <button mat-menu-item (click)="onLogout()">
+                        <mat-icon>exit_to_app</mat-icon>
+                        Logout
+                    </button>
+                </mat-menu>
             </mat-menu>
         </ng-container>
     </mat-toolbar-row>

@@ -6,6 +6,8 @@ $zanadaniel-warn: mat-palette($mat-red);
 $zanadaniel-theme: mat-light-theme($zanadaniel-primary, $zanadaniel-accent, $zanadaniel-warn);
 @include angular-material-theme($zanadaniel-theme);
 
+@import 'src/palette.scss';
+
 html, body {
     width: 100% !important;
     height: 100% !important;
@@ -31,6 +33,12 @@ body {
 		margin: 0 !important;
 		padding: 0 !important;
 	}
+}
+
+.mat-snack-bar-container {
+	color: $white !important;
+	background: $primary !important;
+	box-shadow: none !important;
 }
 
 div.code-toolbar > .toolbar {

@@ -19,4 +19,11 @@ export class ApiService {
     post(slug: string, id: string): Observable<Object> {
         return this.http.get(this.endpoint + 'post.php?id=' + id);
     }
+
+    login(username: string, password: string): Observable<Object> {
+        return this.http.post(this.endpoint + 'login.php', {
+            username: username,
+            password: password
+        });
+    }
 }

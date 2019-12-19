@@ -1,0 +1,28 @@
+<div class="spinner" *ngIf="loading"><mat-progress-spinner mode="indeterminate"></mat-progress-spinner></div>
+
+<div class="mdc-layout-grid__inner root" [@fadeIn]="show ? 'visible' : 'invisible'">
+    <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <h1>Login</h1>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+			<mat-form-field appearance="standard" hideRequiredMarker>
+				<mat-label>Username</mat-label>
+				<input matInput required type="text" formControlName="username">
+
+				<mat-error *ngIf="!form.get('username').valid">
+					Your username is required
+				</mat-error>
+			</mat-form-field>
+
+			<mat-form-field appearance="standard" hideRequiredMarker>
+				<mat-label>Password</mat-label>
+				<input matInput required type="password" formControlName="password">
+
+				<mat-error *ngIf="!form.get('password').valid">
+					Your password is required
+				</mat-error>
+			</mat-form-field>
+
+			<button mat-flat-button color="primary" type="submit" [disabled]="!form.valid || loading">Login</button>
+		</form>
+    </div>
+</div>
