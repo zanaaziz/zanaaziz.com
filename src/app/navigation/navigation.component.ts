@@ -4,6 +4,7 @@ import { fadeInAnimation } from '../animations';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
 import { SnackService } from '../shared/snack.service';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-navigation',
@@ -17,7 +18,8 @@ export class NavigationComponent implements OnInit {
         private breakPointObserverService: BreakpointObserverService,
         private auth: AuthService,
         private router: Router,
-        private snack: SnackService
+        private snack: SnackService,
+        private dialog: MatDialog
     ) { }
 
     show: boolean = false;
@@ -25,9 +27,21 @@ export class NavigationComponent implements OnInit {
     authenticated: boolean = localStorage.getItem('authentication') === '1' ? true : false;
 
     onLogout(): void {
-        this.auth.logout();
-        this.snack.open('You\'re logged out');
-        this.router.navigate(['/']);
+        const dialogRef = this.dialog.open(LogoutConfirmDialogModel, {
+			width: '250px',
+			height: '120px'
+		});
+
+        dialogRef.afterClosed()
+		.subscribe(
+            result => {
+                if (result === true) {
+                    this.auth.logout();
+                    this.snack.open('You\'re logged out');
+                    this.router.navigate(['/']);
+                }
+            }
+        );
     }
 
     ngOnInit() {
@@ -50,4 +64,25 @@ export class NavigationComponent implements OnInit {
         }, 250);
     }
     
+}
+
+@Component({
+	selector: 'confirm-dialog-model',
+	templateUrl: '../shared/confirm-dialog.html',
+})
+export class LogoutConfirmDialogModel {
+
+	constructor(public dialogRef: MatDialogRef<NavigationComponent>) { }
+
+	onYes() {
+		this.dialogRef.close(true);
+	}
+
+	onNo() {
+		this.dialogRef.close(false);
+	}
+
+	onClose() {
+		this.dialogRef.close(null);
+	}
 }

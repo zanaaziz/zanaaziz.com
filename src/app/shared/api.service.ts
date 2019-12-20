@@ -26,4 +26,27 @@ export class ApiService {
             password: password
         });
     }
+
+    create(title: string, image: string, body: string): Observable<Object> {
+        return this.http.post(this.endpoint + 'create.php', {
+            title: title,
+            image: image,
+            body: body
+        });
+    }
+
+    update(id: string, title: string, image: string, body: string): Observable<Object> {
+        return this.http.put(this.endpoint + 'update.php', {
+            id: id,
+            title: title,
+            image: image,
+            body: body
+        });
+    }
+
+    delete(id: string): Observable<Object> {
+        return this.http.post(this.endpoint + 'delete.php', {
+            id: id
+        });
+    }
 }

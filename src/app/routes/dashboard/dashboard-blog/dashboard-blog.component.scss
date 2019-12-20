@@ -1,0 +1,37 @@
+@import 'src/palette.scss';
+
+.root {
+    margin-top: 2em !important;
+}
+
+table {
+    width: 100% !important;
+}
+
+th, td {
+    padding: 1em !important;
+}
+
+td {
+    white-space: nowrap !important;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+th.mat-sort-header-sorted {
+    color: $primary !important;
+}
+
+.mat-row:hover {
+    background-color: $secondary-light !important;
+    transition: all 0.25s !important;
+}
+
+.create {
+    position: fixed !important;
+    bottom: 1.5em !important;
+    right: 1.5em !important;
+}

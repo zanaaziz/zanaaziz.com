@@ -16,7 +16,10 @@ import {
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatDialogModule
 } from "@angular/material";
 
 import { LayoutModule } from '@angular/cdk/layout';
@@ -24,7 +27,7 @@ import { HomeComponent } from './routes/home/home.component';
 import { AboutComponent } from './routes/about/about.component';
 import { PortfolioComponent } from './routes/portfolio/portfolio.component';
 import { ContactComponent } from './routes/contact/contact.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent, LogoutConfirmDialogModel } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogComponent } from './routes/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,8 +35,9 @@ import { BlogPostComponent } from './routes/blog/blog-post/blog-post.component';
 import { NgxMdModule } from 'ngx-md';
 import { LoginComponent } from './routes/dashboard/dashboard-login/dashboard-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DashboardBlogComponent } from './routes/dashboard/dashboard-blog/dashboard-blog.component';
+import { DashboardBlogComponent, DeleteConfirmDialogModel } from './routes/dashboard/dashboard-blog/dashboard-blog.component';
 import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.component';
+import { DashboardBlogPostComponent } from './routes/dashboard/dashboard-blog/dashboard-blog-post/dashboard-blog-post.component';
 
 @NgModule({
     declarations: [
@@ -48,7 +52,14 @@ import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.co
         BlogPostComponent,
         LoginComponent,
         DashboardBlogComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        DashboardBlogPostComponent,
+        DeleteConfirmDialogModel,
+        LogoutConfirmDialogModel
+    ],
+    entryComponents: [
+        DeleteConfirmDialogModel,
+        LogoutConfirmDialogModel
     ],
     imports: [
         BrowserModule,
@@ -69,7 +80,10 @@ import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.co
         MatTooltipModule,
         MatFormFieldModule,
         MatInputModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatTableModule,
+        MatSortModule,
+        MatDialogModule
     ],
     providers: [],
     bootstrap: [AppComponent]

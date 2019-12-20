@@ -12,8 +12,7 @@
 }
 
 p {
-    line-height: 1.25em;
-    letter-spacing: 0.025em;
+    line-height: 1.5em;
 }
 
 .bold {
@@ -30,7 +29,6 @@ p {
 
         h2 {
             font-size: 1.25em;
-            font-weight: 500;
             display: inline-block;
         }
 
@@ -46,7 +44,6 @@ p {
     .details {
         h2 {
             font-size: 1.25em;
-            font-weight: 500;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -66,7 +63,7 @@ p {
 
         h2:nth-child(3), h2:last-child {
             font-size: 0.75em;
-            font-weight: normal;
+            font-weight: normal !important;
         }
     }
 

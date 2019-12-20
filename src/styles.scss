@@ -19,6 +19,14 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif !important;
 }
 
+body, button {
+    letter-spacing: 0.025em !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500 !important;
+}
+
 .spinner:not(.preserve) {
 	position: fixed !important;
 	left: 50% !important;
@@ -41,6 +49,10 @@ body {
 	box-shadow: none !important;
 }
 
+.mat-tooltip {
+    background-color: $primary !important;
+}
+
 div.code-toolbar > .toolbar {
     background: #F5F2F0 !important;
 }
@@ -57,10 +69,8 @@ div.code-toolbar > .toolbar a, div.code-toolbar > .toolbar button, div.code-tool
 
 .ngx-md {
     line-height: 1.5em !important;
-    letter-spacing: 0.025em !important;
 
     h1, h2, h3, h4, h5, h6 {
-        font-weight: 500 !important;
         margin-top: 1em !important;
     }
 

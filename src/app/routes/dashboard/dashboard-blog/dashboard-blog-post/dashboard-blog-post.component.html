@@ -1,0 +1,32 @@
+<div class="spinner" *ngIf="loading"><mat-progress-spinner mode="indeterminate"></mat-progress-spinner></div>
+
+<div class="mdc-layout-grid__inner root" [@fadeIn]="show ? 'visible' : 'invisible'">
+    <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+			<mat-form-field appearance="standard" hideRequiredMarker>
+				<mat-label>Title</mat-label>
+				<input matInput required type="text" formControlName="title">
+
+				<mat-error *ngIf="!form.get('title').valid">
+					Title is missing
+				</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="standard">
+				<mat-label>Image link (optional)</mat-label>
+				<input matInput type="text" formControlName="image">
+            </mat-form-field>
+            
+            <mat-form-field appearance="standard" hideRequiredMarker>
+				<mat-label>Body</mat-label>
+				<textarea matInput required type="text" formControlName="body" cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMaxRows="23"></textarea>
+
+				<mat-error *ngIf="!form.get('body').valid">
+					Body is missing
+				</mat-error>
+			</mat-form-field>
+
+			<button mat-flat-button color="primary" type="submit" [disabled]="!form.valid || loading">{{ creating ? 'Create' : 'Update' }}</button>
+		</form>
+    </div>
+</div>

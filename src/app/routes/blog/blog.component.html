@@ -3,8 +3,8 @@
 <div class="mdc-layout-grid__inner root" *ngIf="!loading" [@fadeIn]="show ? 'visible' : 'invisible'">
     <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone" *ngFor="let post of posts; let i=index">
         <div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
-                <a [routerLink]="['/blog/' + post['slug']]" [queryParams]="{ id: post['id'] }"><img [src]="post['image']" alt="Cover image of blog post"></a>
+            <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone" *ngIf="post['image']">
+                <a [routerLink]="['/blog/' + post['slug']]" [queryParams]="{ id: post['id'] }"><img [src]="post['image']"></a>
             </div>
 
             <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
