@@ -31,7 +31,8 @@ export class ApiService {
         return this.http.post(this.endpoint + 'create.php', {
             title: title,
             image: image,
-            body: body
+            body: body,
+            token: localStorage.getItem('token')
         });
     }
 
@@ -40,13 +41,15 @@ export class ApiService {
             id: id,
             title: title,
             image: image,
-            body: body
+            body: body,
+            token: localStorage.getItem('token')
         });
     }
 
     delete(id: string): Observable<Object> {
         return this.http.post(this.endpoint + 'delete.php', {
-            id: id
+            id: id,
+            token: localStorage.getItem('token')
         });
     }
 }

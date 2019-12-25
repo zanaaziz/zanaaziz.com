@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
                 this.loading = false;
 
                 if (res['authentication'] === '1') {
+                    localStorage.setItem('token', this.form.get('password').value);
                     this.auth.login();
                     this.snack.open('You\'re logged in');
                     this.router.navigate(['/dashboard/blog']);

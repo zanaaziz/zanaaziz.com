@@ -41,9 +41,11 @@ export class DashboardBlogComponent implements OnInit {
 		.subscribe(
             result => {
                 if (result === true) {
+                    this.loading = true;
                     this.api.delete(post['id'])
                     .subscribe(
                         res => {
+                            this.loading = false;
                             const index = this.posts.data.indexOf(post, 0);
                             if (index > -1) { this.posts.data.splice(index, 1); }
                             this.posts = new MatTableDataSource(this.posts.data);

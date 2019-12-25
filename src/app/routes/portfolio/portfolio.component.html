@@ -3,7 +3,7 @@
         <h1 class="no-margin-top">Background</h1>
 
         <p>
-            In my professional career, I have done extensive work in <span class="bold">web development</span> using modern frameworks such as <span class="bold">Angular</span> to power robust single page applications. I'm also familiar with implementing CI/CD pipelines, Docker containers, and Kubernetes.
+            I've done a vast amount of work in <span class="bold">web development</span> using modern frameworks such as <span class="bold">Angular</span> to power robust <span class="bold">single page applications</span>. I've also <span class="bold">led backend developers</span> in planning out the <span class="bold">design</span> and <span class="bold">structure</span> of complex <span class="bold">API's</span> along with implementing <span class="bold">CI/CD pipelines</span>.
         </p>
 
         <p>
@@ -13,6 +13,15 @@
 
     <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone" [@fadeIn]="showSkills ? 'visible' : 'invisible'">
         <h1>Skills</h1>
+
+        <div class="skill">
+            <div class="details">
+                <h2>Project Management</h2>
+                <h2>{{ skills['management'] }}&#37;</h2>
+            </div>
+            
+            <mat-progress-bar color="primary" mode="determinate" [value]="skills['management']"></mat-progress-bar>
+        </div>
 
         <div class="skill">
             <div class="details">
@@ -30,15 +39,6 @@
             </div>
 
             <mat-progress-bar color="primary" mode="determinate" [value]="skills['java']"></mat-progress-bar>
-        </div>
-
-        <div class="skill">
-            <div class="details">
-                <h2>Python</h2>
-                <h2>{{ skills['python'] }}&#37;</h2>
-            </div>
-
-            <mat-progress-bar color="primary" mode="determinate" [value]="skills['python']"></mat-progress-bar>
         </div>
 
         <div class="skill">
@@ -67,6 +67,24 @@
 
             <mat-progress-bar color="primary" mode="determinate" [value]="skills['javascript']"></mat-progress-bar>
         </div>
+
+        <div class="skill">
+            <div class="details">
+                <h2>Python</h2>
+                <h2>{{ skills['python'] }}&#37;</h2>
+            </div>
+
+            <mat-progress-bar color="primary" mode="determinate" [value]="skills['python']"></mat-progress-bar>
+        </div>
+
+        <div class="skill">
+            <div class="details">
+                <h2>PHP</h2>
+                <h2>{{ skills['php'] }}&#37;</h2>
+            </div>
+
+            <mat-progress-bar color="primary" mode="determinate" [value]="skills['php']"></mat-progress-bar>
+        </div>
     </div>
 
     <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone" [@fadeIn]="showExperience ? 'visible' : 'invisible'">
@@ -82,11 +100,11 @@
 
             <div class="description">
                 <p>
-                    As a web developer, I'm primarily focused on delivering the front-end, taking part in various projects for our clients using Angular to power cutting-edge web applications.
+                    As a web developer, my biggest contribution is the efficient construction of cutting-edge web applications in a professional manner by utilizing my expertise in Angular. I also lead and manage 3 other developers below me by carrying out daily scrum calls, assigning tasks and milestones for completion, and most importantly figuring out what comes next.
                 </p>
 
                 <p>
-                    As a software developer, I hold a lead role in developing programs using Java, the largest project of all was with ZAGG, a multinational company known for its line of protective coverings for consumer electronics and hand-held devices under the brand name InvisibleShield. The project focused on expanding their current infrastructure to support the desktop environment on all operating systems.
+                    As a software developer, I've held lead roles in developing applications using Java such as the project I was appointed to lead for one of our top clients called ZAGG, a multinational company known for its line of protective coverings for consumer electronics and hand-held devices under the brand name InvisibleShield. The project focused on expanding their current infrastructure to support the desktop environment on all operating systems.
                 </p>
             </div>
         </div>
@@ -101,7 +119,7 @@
 
             <div class="description">
                 <p>
-                    As a freelance developer, I got around to some nifty projects through platforms such as Upwork and even some friends &amp; family. Most of the projects I took on were five-page websites for small&mdash;medium sized organizations.
+                    As a freelance developer, I kept myself busy by utilizing platforms such as Upwork and networking through friends &amp; family. Most of the projects I took on were five-page websites for small&mdash;medium sized organizations.
                 </p>
             </div>
         </div>
