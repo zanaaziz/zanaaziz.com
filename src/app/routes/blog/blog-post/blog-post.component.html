@@ -1,14 +1,20 @@
 <div class="spinner" *ngIf="loading"><mat-progress-spinner mode="indeterminate"></mat-progress-spinner></div>
 
 <div class="mdc-layout-grid__inner root" *ngIf="!loading" [@fadeIn]="show ? 'visible' : 'invisible'">
-    <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone cover" [ngStyle]="{ 'max-height': isMobile ? '12.5em' : '25em' }">
-        <img [src]="post['image']" alt="Cover image of blog post" *ngIf="post['image']">
-        <div class="overlay" *ngIf="post['image']"></div>
-        <h1 [ngClass]="{'with-image': post['image'], 'without-image': !post['image']}" [ngStyle]="{ 'font-size': isMobile ? '1.5em' : '2.5em' }">{{ post['title'] }}</h1>
+    <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone" [ngStyle]="{ 'max-height': isMobile ? '12.5em' : '25em' }" *ngIf="post['image']">
+        <img [src]="post['image']" alt="Cover image of blog post">
+    </div>
+
+    <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <h1 [ngClass]="{'with-image': post['image'], 'without-image': !post['image']}" [ngStyle]="{ 'font-size': isMobile ? '1.25em' : '2em' }">{{ post['title'] }}</h1>
 
         <div class="timestamp" [ngClass]="{'with-image': post['image'], 'without-image': !post['image']}" [ngStyle]="{ 'margin': isMobile ? '0 0 0.5em 0' : '0 0 1em 0' }">
             <mat-icon>schedule</mat-icon><span [ngStyle]="{ 'font-size': isMobile ? '0.75em' : '1em' }">{{ calculate(post['date']) }}</span>
         </div>
+    </div>
+
+    <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
+        <mat-divider></mat-divider>
     </div>
 
     <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone ngx-md" Markdown>
