@@ -9,7 +9,7 @@ export class ApiService {
 
     constructor(private http: HttpClient) { }
 
-    endpoint: string = 'http://api.zanadaniel.com/public/'
+    endpoint: string = './api.zanadaniel.com/public/'
     showFooter = new EventEmitter<boolean>();
 
     posts(): Observable<Object> {
