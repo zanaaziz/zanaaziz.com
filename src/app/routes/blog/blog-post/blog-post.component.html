@@ -6,9 +6,9 @@
     </div>
 
     <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-        <h1 [ngClass]="{'with-image': post['image'], 'without-image': !post['image']}" [ngStyle]="{ 'font-size': isMobile ? '1.25em' : '2em' }">{{ post['title'] }}</h1>
+        <h1>{{ post['title'] }}</h1>
 
-        <div class="timestamp" [ngClass]="{'with-image': post['image'], 'without-image': !post['image']}" [ngStyle]="{ 'margin': isMobile ? '0 0 0.5em 0' : '0 0 1em 0' }">
+        <div class="timestamp">
             <mat-icon>schedule</mat-icon><span [ngStyle]="{ 'font-size': isMobile ? '0.75em' : '1em' }">{{ calculate(post['date']) }}</span>
         </div>
     </div>
