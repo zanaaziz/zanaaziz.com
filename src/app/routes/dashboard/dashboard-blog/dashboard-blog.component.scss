@@ -25,14 +25,16 @@ th.mat-sort-header-sorted {
     color: $primary !important;
 }
 
-.mat-row:hover {
-    background-color: $secondary-light !important;
-    transition: all 0.25s !important;
-}
-
 .create {
     position: fixed !important;
     bottom: 1.5em !important;
     right: 1.5em !important;
     color: $white !important;
+}
+
+@media only screen and (min-width: 840px) {
+    .mat-row:hover {
+        background-color: $secondary-light !important;
+        transition: all 0.25s !important;
+    }
 }

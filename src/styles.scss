@@ -100,17 +100,17 @@ div.code-toolbar > .toolbar a, div.code-toolbar > .toolbar button, div.code-tool
         font-weight: 500 !important;
     }
 
+    .code-toolbar {
+        z-index: 0 !important;
+    }
+
     @media only screen and (max-width: 840px) {
-        h1 {
-            font-size: 1.3em !important;
-        }
-    
         h2 {
-            font-size: 1.25em !important;
+            font-size: 1.5em !important;
         }
     
         h3 {
-            font-size: 1.2em !important;
+            font-size: 1.25em !important;
         }
     
         h4 {
