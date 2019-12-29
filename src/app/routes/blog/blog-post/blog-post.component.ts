@@ -55,7 +55,7 @@ export class BlogPostComponent implements OnInit {
                                     this.post = res['data'];
                                     this.title.setTitle(this.post['title'] + ' | Zana Daniel');
                                     this.loading = false;
-                                    this.api.showFooter.emit(true);
+                                    this.api.showFooter.next(true);
                     
                                     setTimeout(() => {
                                         this.prism.highlight();
@@ -67,7 +67,7 @@ export class BlogPostComponent implements OnInit {
                                     console.log(err);
                                     this.title.setTitle('Post not found | Zana Daniel');
                                     this.loading = false;
-                                    this.api.showFooter.emit(true);
+                                    this.api.showFooter.next(true);
                     
                                     setTimeout(() => {
                                         this.show = true;

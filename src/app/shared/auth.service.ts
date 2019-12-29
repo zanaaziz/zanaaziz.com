@@ -1,4 +1,5 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -7,15 +8,15 @@ export class AuthService {
 
     constructor() { }
 
-    authentication = new EventEmitter<string>();
+    state = new Subject<string>();
 
     login(): void {
-        this.authentication.emit('1');
+        this.state.next('1');
         localStorage.setItem('authentication', '1');
     }
 
     logout(): void {
-        this.authentication.emit('0');
+        this.state.next('0');
         localStorage.removeItem('authentication');
         localStorage.removeItem('token');
     }

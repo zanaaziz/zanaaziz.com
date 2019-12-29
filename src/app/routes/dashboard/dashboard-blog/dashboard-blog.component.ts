@@ -58,26 +58,31 @@ export class DashboardBlogComponent implements OnInit {
         );
     }
 
+    render() {
+        if (this.posts.data.length !== 0) {
+            this.loading = false;
+            this.api.showFooter.next(true);
+
+            setTimeout(() => {
+                this.show = true;
+            }, 250);
+        }
+    }
+
     ngOnInit() {
         this.title.setTitle('Manage blog | Zana Daniel');
 
-        this.api.posts()
+        this.api.onPostsChanges()
         .subscribe(
-            res => {
-                this.posts = new MatTableDataSource(res['data']);
+            (posts: Post[]) => {
+                this.posts = new MatTableDataSource(posts);
                 this.posts.sort = this.sort;
-                this.loading = false;
-                this.api.showFooter.emit(true);
-
-                setTimeout(() => {
-                    this.show = true
-                }, 250);
-            },
-            err => {
-                console.log(err);
-                
+                this.render();
             }
         );
+
+        this.posts = new MatTableDataSource(this.api.posts());
+        this.render();
     }
 
 }

@@ -1,6 +1,7 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { Post } from './post.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -9,11 +10,29 @@ export class ApiService {
 
     constructor(private http: HttpClient) { }
 
-    endpoint: string = './api.zanadaniel.com/public/'
-    showFooter = new EventEmitter<boolean>();
+    endpoint: string = './api.zanadaniel.com/public/';
 
-    posts(): Observable<Object> {
-        return this.http.get(this.endpoint + 'posts.php');
+    showFooter = new Subject<boolean>();
+
+    private _posts: Post[] = [];
+    private _postsChanges = new Subject<Post[]>();
+
+    onPostsChanges(): Subject<Post[]> {
+        return this._postsChanges;
+    }
+
+    posts(): Post[] {
+        if (this._posts.length === 0) {
+           this.http.get(this.endpoint + 'posts.php')
+            .subscribe(
+                res => {
+                    this._posts = res['data'];
+                    this._postsChanges.next(this._posts);
+                }
+            ); 
+        }
+        
+        return this._posts;
     }
 
     post(slug: string, id: string): Observable<Object> {

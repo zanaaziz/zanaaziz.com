@@ -77,7 +77,7 @@ export class DashboardBlogPostComponent implements OnInit {
                             this.title.setTitle('Create blog post');
                             this.creating = true;
                             this.loading = false;
-                            this.api.showFooter.emit(true);
+                            this.api.showFooter.next(true);
             
                             setTimeout(() => {
                                 this.show = true;
@@ -97,7 +97,7 @@ export class DashboardBlogPostComponent implements OnInit {
                                     this.form.get('body').setValue(this.post['body']);
 
                                     this.loading = false;
-                                    this.api.showFooter.emit(true);
+                                    this.api.showFooter.next(true);
                     
                                     setTimeout(() => {
                                         this.show = true;

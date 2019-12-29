@@ -30,6 +30,17 @@ export class BlogComponent implements OnInit {
         return this.moment.calculate(timestamp);
     }
 
+    render() {
+        if (this.posts.length !== 0) {
+            this.loading = false;
+            this.api.showFooter.next(true);
+
+            setTimeout(() => {
+                this.show = true;
+            }, 250);
+        }
+    }
+
     ngOnInit() {
         // set title
         this.title.setTitle('Blog | Zana Daniel');
@@ -42,29 +53,16 @@ export class BlogComponent implements OnInit {
             }
         );
 
-        this.api.posts()
+        this.api.onPostsChanges()
         .subscribe(
-            res => {
-                this.posts = res['data'];
-                this.loading = false;
-                this.api.showFooter.emit(true);
-
-                setTimeout(() => {
-                    this.show = true;
-                }, 250);
-
-            },
-            err => {
-                console.log(err);
-                this.loading = false;
-                this.api.showFooter.emit(true);
-
-                setTimeout(() => {
-                    this.show = true;
-                }, 250);
-                
+            (posts: Post[]) => {
+                this.posts = posts;
+                this.render();
             }
         );
+
+        this.posts = this.api.posts();
+        this.render();
     }
 
 }

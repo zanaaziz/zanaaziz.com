@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BreakpointObserverService } from '../shared/breakpoint-observer.service';
 import { fadeInAnimation } from '../animations';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
 import { SnackService } from '../shared/snack.service';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-navigation',
@@ -12,7 +13,7 @@ import { MatDialogRef, MatDialog } from '@angular/material/dialog';
     styleUrls: ['./navigation.component.scss'],
     animations: [fadeInAnimation]
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnDestroy {
 
     constructor(
         private breakPointObserverService: BreakpointObserverService,
@@ -25,6 +26,7 @@ export class NavigationComponent implements OnInit {
     show: boolean = false;
     isMobile: boolean;
     authenticated: boolean = localStorage.getItem('authentication') === '1' ? true : false;
+    private subscriptions: Subscription = new Subscription();
 
     onLogout(): void {
         const dialogRef = this.dialog.open(LogoutConfirmDialogModel, {
@@ -45,11 +47,13 @@ export class NavigationComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.auth.authentication
-        .subscribe(
-            (authentication: string) => {
-                this.authenticated = authentication === '1' ? true : false;
-            }
+        this.subscriptions.add(
+            this.auth.state
+            .subscribe(
+                (state: string) => {
+                    this.authenticated = state === '1' ? true : false;
+                }
+            )
         );
 
         this.breakPointObserverService.isMobile()
@@ -62,6 +66,10 @@ export class NavigationComponent implements OnInit {
         setTimeout(() => {
             this.show = true;
         }, 250);
+    }
+
+    ngOnDestroy() {
+        this.subscriptions.unsubscribe();
     }
     
 }

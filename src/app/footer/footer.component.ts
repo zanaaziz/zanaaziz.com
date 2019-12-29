@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router, Event, NavigationStart } from '@angular/router';
 import { fadeInAnimation } from '../animations';
 import { ApiService } from '../shared/api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-footer',
@@ -9,7 +10,7 @@ import { ApiService } from '../shared/api.service';
     styleUrls: ['./footer.component.scss'],
     animations: [fadeInAnimation]
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements OnInit, OnDestroy {
 
     constructor(private router: Router, private api: ApiService) { }
 
@@ -17,6 +18,7 @@ export class FooterComponent implements OnInit {
     home: boolean;
     year = new Date().getFullYear();
     timer: any;
+    private subscriptions: Subscription = new Subscription();
 
     ngOnInit() {
         this.router.events
@@ -47,17 +49,23 @@ export class FooterComponent implements OnInit {
 			}
         );
         
-        this.api.showFooter
-        .subscribe(
-            (show: boolean) => {
-                if (show && window['location']['pathname'].includes('/blog')) {
-                    this.timer = setTimeout(() => {
-                        this.show = true;
-                    }, 250);
+        this.subscriptions.add(
+            this.api.showFooter
+            .subscribe(
+                (show: boolean) => {
+                    if (show && window['location']['pathname'].includes('/blog')) {
+                        this.timer = setTimeout(() => {
+                            this.show = true;
+                        }, 250);
+                    }
                 }
-            }
+            )
         );
 
+    }
+
+    ngOnDestroy() {
+        this.subscriptions.unsubscribe();
     }
 
 }
