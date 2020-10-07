@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         // set title
-        this.title.setTitle('Home | Zana Daniel');
+        this.title.setTitle('Home | Zana Aziz');
         
         // detect screen size
         this.breakPointObserverService.isMobile()

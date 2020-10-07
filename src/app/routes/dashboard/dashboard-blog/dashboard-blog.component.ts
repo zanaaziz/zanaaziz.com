@@ -70,7 +70,7 @@ export class DashboardBlogComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.title.setTitle('Manage blog | Zana Daniel');
+        this.title.setTitle('Manage blog | Zana Aziz');
 
         this.api.onPostsChanges()
         .subscribe(

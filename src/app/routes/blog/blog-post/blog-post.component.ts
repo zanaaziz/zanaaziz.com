@@ -53,7 +53,7 @@ export class BlogPostComponent implements OnInit {
                             .subscribe(
                                 (res: Post) => {
                                     this.post = res;
-                                    this.title.setTitle(this.post.title + ' | Zana Daniel');
+                                    this.title.setTitle(this.post.title + ' | Zana Aziz');
                                     this.loading = false;
                                     this.api.showFooter.next(true);
                     
@@ -65,7 +65,7 @@ export class BlogPostComponent implements OnInit {
                                 },
                                 err => {
                                     console.log(err);
-                                    this.title.setTitle('Post not found | Zana Daniel');
+                                    this.title.setTitle('Post not found | Zana Aziz');
                                     this.loading = false;
                                     this.api.showFooter.next(true);
                     

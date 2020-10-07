@@ -24,7 +24,7 @@ export class PortfolioComponent implements OnInit {
 
     ngOnInit() {
         // set title
-        this.title.setTitle('Portfolio | Zana Daniel');
+        this.title.setTitle('Portfolio | Zana Aziz');
 
         // detect screen size
         this.breakPointObserverService.isMobile()

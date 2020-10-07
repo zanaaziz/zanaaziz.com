@@ -43,7 +43,7 @@ export class BlogComponent implements OnInit {
 
     ngOnInit() {
         // set title
-        this.title.setTitle('Blog | Zana Daniel');
+        this.title.setTitle('Blog | Zana Aziz');
 
         // detect screen size
         this.breakPointObserverService.isMobile()

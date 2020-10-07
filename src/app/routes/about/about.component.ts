@@ -22,7 +22,7 @@ export class AboutComponent implements OnInit {
 
     ngOnInit() {
         // set title
-        this.title.setTitle('About | Zana Daniel');
+        this.title.setTitle('About | Zana Aziz');
 
         setTimeout(() => {
             this.showTitle = true;

@@ -16,7 +16,7 @@ export class PageNotFoundComponent implements OnInit {
     show: boolean = false;
 
     ngOnInit() {
-        this.title.setTitle('Page not found | Zana Daniel');
+        this.title.setTitle('Page not found | Zana Aziz');
 
         setTimeout(() => {
             this.show = true;
