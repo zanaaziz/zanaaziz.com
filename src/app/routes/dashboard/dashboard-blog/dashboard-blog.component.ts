@@ -42,7 +42,7 @@ export class DashboardBlogComponent implements OnInit {
             result => {
                 if (result === true) {
                     this.loading = true;
-                    this.api.delete(post['id'])
+                    this.api.postDelete(post.id)
                     .subscribe(
                         res => {
                             this.loading = false;
@@ -81,7 +81,7 @@ export class DashboardBlogComponent implements OnInit {
             }
         );
 
-        this.posts = new MatTableDataSource(this.api.posts());
+        this.posts = new MatTableDataSource(this.api.postsList());
         this.render();
     }
 
