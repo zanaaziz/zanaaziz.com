@@ -61,7 +61,7 @@ export class BlogComponent implements OnInit {
             }
         );
 
-        this.posts = this.api.posts();
+        this.posts = this.api.postsList();
         this.render();
     }
 

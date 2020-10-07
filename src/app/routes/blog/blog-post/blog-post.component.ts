@@ -48,12 +48,12 @@ export class BlogPostComponent implements OnInit {
                 this.route.queryParams
                 .subscribe(
                     (queries: Params) => {
-                        if (params['slug'] !== undefined && queries['id'] !== undefined) {
-                            this.api.post(params['slug'], queries['id'])
+                        if (params['slug'] && queries['id']) {
+                            this.api.postDetail(params['slug'], queries['id'])
                             .subscribe(
-                                res => {
-                                    this.post = res['data'];
-                                    this.title.setTitle(this.post['title'] + ' | Zana Daniel');
+                                (res: Post) => {
+                                    this.post = res;
+                                    this.title.setTitle(this.post.title + ' | Zana Daniel');
                                     this.loading = false;
                                     this.api.showFooter.next(true);
                     
