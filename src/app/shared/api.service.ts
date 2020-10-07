@@ -19,7 +19,7 @@ export class ApiService {
         return this._postsChanges;
     }
 
-    posts(): Post[] {
+    postsList(): Post[] {
         if (this._posts.length === 0) {
            this.http.get(environment.api + '/posts')
             .subscribe(
@@ -27,46 +27,40 @@ export class ApiService {
                     this._posts = res['posts'];
                     this._postsChanges.next(this._posts);
                 }
-            ); 
+            );
         }
         
         return this._posts;
     }
 
-    post(slug: string, id: string): Observable<Object> {
-        return this.http.get(environment.api + 'post.php?id=' + id);
+    postDetail(slug: string, id: number): Observable<Object> {
+        return this.http.get(environment.api + '/posts/' + id);
     }
 
-    login(username: string, password: string): Observable<Object> {
-        return this.http.post(environment.api + 'login.php', {
-            username: username,
-            password: password
-        });
-    }
-
-    create(title: string, image: string, body: string): Observable<Object> {
-        return this.http.post(environment.api + 'create.php', {
+    postCreate(title: string, image_url: string, body: string): Observable<Object> {
+        return this.http.post(environment.api + '/posts', {
             title: title,
-            image: image,
-            body: body,
-            token: localStorage.getItem('token')
+            image_url: image_url,
+            body: body
         });
     }
 
-    update(id: string, title: string, image: string, body: string): Observable<Object> {
-        return this.http.put(environment.api + 'update.php', {
-            id: id,
+    postUpdate(id: number, title: string, image_url: string, body: string): Observable<Object> {
+        return this.http.put(environment.api + '/posts/' + id, {
             title: title,
-            image: image,
-            body: body,
-            token: localStorage.getItem('token')
+            image_url: image_url,
+            body: body
         });
     }
 
-    delete(id: string): Observable<Object> {
-        return this.http.post(environment.api + 'delete.php', {
-            id: id,
-            token: localStorage.getItem('token')
-        });
-    }
+    postDelete(id: number): Observable<Object> {
+        return this.http.delete(environment.api + '/posts/' + id);
+	}
+
+	login(username: string, password: string): Observable<Object> {
+		return this.http.post(environment.api + '/login', {
+			username: username,
+			password: password
+		});
+	}
 }
