@@ -28,7 +28,7 @@ import { ContactComponent } from './routes/contact/contact.component';
 import { NavigationComponent, LogoutConfirmDialogModel } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogComponent } from './routes/blog/blog.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BlogPostComponent } from './routes/blog/blog-post/blog-post.component';
 import { NgxMdModule } from 'ngx-md';
 import { LoginComponent } from './routes/dashboard/dashboard-login/dashboard-login.component';
@@ -36,6 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardBlogComponent, DeleteConfirmDialogModel } from './routes/dashboard/dashboard-blog/dashboard-blog.component';
 import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.component';
 import { DashboardBlogPostComponent } from './routes/dashboard/dashboard-blog/dashboard-blog-post/dashboard-blog-post.component';
+import { AuthInterceptor } from './shared/auth.interceptor';
 
 @NgModule({
     declarations: [
@@ -83,7 +84,13 @@ import { DashboardBlogPostComponent } from './routes/dashboard/dashboard-blog/da
         MatSortModule,
         MatDialogModule
     ],
-    providers: [],
+    providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthInterceptor,
+			multi: true
+		}
+	],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

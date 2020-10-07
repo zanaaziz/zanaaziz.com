@@ -98,7 +98,7 @@ export class DashboardBlogPostComponent implements OnInit {
                                     this.post = res;
 
                                     this.form.get('title').setValue(this.post.title);
-                                    this.form.get('image_url').setValue(this.post.date_created);
+                                    this.form.get('image_url').setValue(this.post.image_url);
                                     this.form.get('body').setValue(this.post.body);
 
                                     this.loading = false;

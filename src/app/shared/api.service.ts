@@ -20,7 +20,7 @@ export class ApiService {
     }
 
     postsList(): Post[] {
-        if (this._posts.length === 0) {
+        if (this._posts && this._posts.length === 0) {
            this.http.get(environment.api + '/posts')
             .subscribe(
                 res => {
