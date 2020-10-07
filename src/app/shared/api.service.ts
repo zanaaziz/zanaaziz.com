@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { Post } from './post.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -10,10 +11,7 @@ export class ApiService {
 
     constructor(private http: HttpClient) { }
 
-    endpoint: string = './api.zanadaniel.com/public/';
-
     showFooter = new Subject<boolean>();
-
     private _posts: Post[] = [];
     private _postsChanges = new Subject<Post[]>();
 
@@ -23,10 +21,10 @@ export class ApiService {
 
     posts(): Post[] {
         if (this._posts.length === 0) {
-           this.http.get(this.endpoint + 'posts.php')
+           this.http.get(environment.api + '/posts')
             .subscribe(
                 res => {
-                    this._posts = res['data'];
+                    this._posts = res['posts'];
                     this._postsChanges.next(this._posts);
                 }
             ); 
@@ -36,18 +34,18 @@ export class ApiService {
     }
 
     post(slug: string, id: string): Observable<Object> {
-        return this.http.get(this.endpoint + 'post.php?id=' + id);
+        return this.http.get(environment.api + 'post.php?id=' + id);
     }
 
     login(username: string, password: string): Observable<Object> {
-        return this.http.post(this.endpoint + 'login.php', {
+        return this.http.post(environment.api + 'login.php', {
             username: username,
             password: password
         });
     }
 
     create(title: string, image: string, body: string): Observable<Object> {
-        return this.http.post(this.endpoint + 'create.php', {
+        return this.http.post(environment.api + 'create.php', {
             title: title,
             image: image,
             body: body,
@@ -56,7 +54,7 @@ export class ApiService {
     }
 
     update(id: string, title: string, image: string, body: string): Observable<Object> {
-        return this.http.put(this.endpoint + 'update.php', {
+        return this.http.put(environment.api + 'update.php', {
             id: id,
             title: title,
             image: image,
@@ -66,7 +64,7 @@ export class ApiService {
     }
 
     delete(id: string): Observable<Object> {
-        return this.http.post(this.endpoint + 'delete.php', {
+        return this.http.post(environment.api + 'delete.php', {
             id: id,
             token: localStorage.getItem('token')
         });
