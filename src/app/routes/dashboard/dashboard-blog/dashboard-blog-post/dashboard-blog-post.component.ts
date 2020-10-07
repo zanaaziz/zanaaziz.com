@@ -28,15 +28,20 @@ export class DashboardBlogPostComponent implements OnInit {
     show: boolean = false;
     loading: boolean = true;
     post: Post;
-    form: FormGroup;
     isMobile: boolean;
-    creating: boolean;
+	creating: boolean;
+	
+    form: FormGroup = new FormGroup({
+		title: new FormControl(null, Validators.required),
+		image_url: new FormControl(null),
+		body: new FormControl(null, Validators.required)
+	});
 
     onSubmit(): void {
         this.loading = true;
 
         if (this.creating) {
-            this.api.create(this.form.get('title').value, this.form.get('image').value, this.form.get('body').value)
+            this.api.postCreate(this.form.get('title').value, this.form.get('image_url').value, this.form.get('body').value)
             .subscribe(
                 res => {
                     this.loading = false;
@@ -50,7 +55,7 @@ export class DashboardBlogPostComponent implements OnInit {
             );
             
         } else {
-            this.api.update(this.post['id'], this.form.get('title').value, this.form.get('image').value, this.form.get('body').value)
+            this.api.postUpdate(this.post.id, this.form.get('title').value, this.form.get('image_url').value, this.form.get('body').value)
             .subscribe(
                 res => {
                     this.loading = false;
@@ -87,14 +92,14 @@ export class DashboardBlogPostComponent implements OnInit {
                             this.title.setTitle('Update blog post');
                             this.creating = false;
 
-                            this.api.post(params['slug'], queries['id'])
+                            this.api.postDetail(params['slug'], queries['id'])
                             .subscribe(
-                                res => {
-                                    this.post = res['data'];
+                                (res: Post) => {
+                                    this.post = res;
 
-                                    this.form.get('title').setValue(this.post['title']);
-                                    this.form.get('image').setValue(this.post['image']);
-                                    this.form.get('body').setValue(this.post['body']);
+                                    this.form.get('title').setValue(this.post.title);
+                                    this.form.get('image_url').setValue(this.post.image_url);
+                                    this.form.get('body').setValue(this.post.body);
 
                                     this.loading = false;
                                     this.api.showFooter.next(true);
@@ -122,12 +127,6 @@ export class DashboardBlogPostComponent implements OnInit {
 				this.isMobile = result.matches;
             }
         );
-
-        this.form = new FormGroup({
-			title: new FormControl(null, Validators.required),
-			image: new FormControl(null),
-			body: new FormControl(null, Validators.required)
-		});
     }
 
 }

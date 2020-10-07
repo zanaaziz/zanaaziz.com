@@ -21,7 +21,7 @@ export class ContactComponent implements OnInit {
 
     ngOnInit() {
         // set title
-        this.title.setTitle('Contact | Zana Daniel');
+        this.title.setTitle('Contact | Zana Aziz');
 
         setTimeout(() => {
             this.showIcon = true;

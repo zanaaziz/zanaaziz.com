@@ -5,22 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatProgressBarModule,
-    MatDividerModule,
-    MatMenuModule,
-    MatTooltipModule,
-    MatProgressSpinnerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSnackBarModule,
-    MatTableModule,
-    MatSortModule,
-    MatDialogModule
-} from "@angular/material";
+import { MatButtonModule } from "@angular/material/button";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatSortModule } from "@angular/material/sort";
+import { MatTableModule } from "@angular/material/table";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { HomeComponent } from './routes/home/home.component';
@@ -30,7 +28,7 @@ import { ContactComponent } from './routes/contact/contact.component';
 import { NavigationComponent, LogoutConfirmDialogModel } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { BlogComponent } from './routes/blog/blog.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BlogPostComponent } from './routes/blog/blog-post/blog-post.component';
 import { NgxMdModule } from 'ngx-md';
 import { LoginComponent } from './routes/dashboard/dashboard-login/dashboard-login.component';
@@ -38,6 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardBlogComponent, DeleteConfirmDialogModel } from './routes/dashboard/dashboard-blog/dashboard-blog.component';
 import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.component';
 import { DashboardBlogPostComponent } from './routes/dashboard/dashboard-blog/dashboard-blog-post/dashboard-blog-post.component';
+import { AuthInterceptor } from './shared/auth.interceptor';
 
 @NgModule({
     declarations: [
@@ -85,7 +84,13 @@ import { DashboardBlogPostComponent } from './routes/dashboard/dashboard-blog/da
         MatSortModule,
         MatDialogModule
     ],
-    providers: [],
+    providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: AuthInterceptor,
+			multi: true
+		}
+	],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

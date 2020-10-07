@@ -23,7 +23,7 @@ export class BlogComponent implements OnInit {
 
     show: boolean = false;
     isMobile: boolean;
-    posts: Post[] = [];
+    posts: Post[];
     loading: boolean = true;
 
     calculate(timestamp: string): string {
@@ -31,7 +31,7 @@ export class BlogComponent implements OnInit {
     }
 
     render() {
-        if (this.posts.length !== 0) {
+        if (this.posts && this.posts.length !== 0) {
             this.loading = false;
             this.api.showFooter.next(true);
 
@@ -43,7 +43,7 @@ export class BlogComponent implements OnInit {
 
     ngOnInit() {
         // set title
-        this.title.setTitle('Blog | Zana Daniel');
+        this.title.setTitle('Blog | Zana Aziz');
 
         // detect screen size
         this.breakPointObserverService.isMobile()
@@ -61,7 +61,7 @@ export class BlogComponent implements OnInit {
             }
         );
 
-        this.posts = this.api.posts();
+        this.posts = this.api.postsList();
         this.render();
     }
 

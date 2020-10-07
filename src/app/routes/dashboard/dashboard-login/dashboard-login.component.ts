@@ -24,8 +24,12 @@ export class LoginComponent implements OnInit {
     ) { }
 
     loading: boolean = false;
-    show: boolean = false;
-    form: FormGroup;
+	show: boolean = false;
+	
+    form: FormGroup = new FormGroup({
+		username: new FormControl(null, Validators.required),
+		password: new FormControl(null, Validators.required)
+	});
 
     onSubmit(): void {
         this.loading = true;
@@ -35,9 +39,10 @@ export class LoginComponent implements OnInit {
             res => {
                 this.loading = false;
 
-                if (res['authentication'] === '1') {
-                    localStorage.setItem('token', this.form.get('password').value);
-                    this.auth.login();
+                if (res['id']) {
+                    localStorage.setItem('access_token', res['access_token']);
+                    localStorage.setItem('refresh_token', res['refresh_token']);
+					this.auth.login();
                     this.snack.open('You\'re logged in');
                     this.router.navigate(['/dashboard/blog']);
 
@@ -56,12 +61,7 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.title.setTitle('Login | Zana Daniel');
-
-        this.form = new FormGroup({
-			username: new FormControl(null, Validators.required),
-			password: new FormControl(null, Validators.required)
-		});
+        this.title.setTitle('Login | Zana Aziz');
 
         setTimeout(() => {
             this.show = true;
