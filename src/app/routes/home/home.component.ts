@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit {
     ) { }
 
     isMobile: boolean;
+    showSmiley: boolean = false;
+    showGreeting: boolean = false;
     showName: boolean = false;
     showTitle: boolean = false;
     showButton: boolean = false;
@@ -33,19 +35,27 @@ export class HomeComponent implements OnInit {
 			result => {
 				this.isMobile = result.matches;
             }
-        );
-
-        setTimeout(() => {
-            this.showName = true;
+		);
+		
+		setTimeout(() => {
+            this.showGreeting = true;
         }, 250);
 
         setTimeout(() => {
-            this.showTitle = true;
+            this.showName = true;
         }, 1250);
 
         setTimeout(() => {
-            this.showButton = true;
+            this.showTitle = true;
         }, 2250);
+
+        setTimeout(() => {
+            this.showButton = true;
+		}, 3250);
+		
+		setTimeout(() => {
+            this.showSmiley = true;
+        }, 5250);
     }
 
 }

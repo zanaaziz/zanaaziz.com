@@ -42,7 +42,7 @@ export class FooterComponent implements OnInit, OnDestroy {
                     if (!window['location']['pathname'].includes('/blog')) {
                         this.timer = setTimeout(() => {
                             this.show = true;
-                        }, 3000);
+                        }, 4000);
                     }
                     
 				}
