@@ -20,12 +20,12 @@
             </button>
 
             <button mat-button [routerLink]="['/portfolio']" routerLinkActive="active">
-                <mat-icon>assignment</mat-icon>
+                <mat-icon>folder_shared</mat-icon>
                 Portfolio
             </button>
 
             <button mat-button [routerLink]="['/blog']" routerLinkActive="active">
-                <mat-icon>menu_book</mat-icon>
+                <mat-icon>text_snippet</mat-icon>
                 Blog
             </button>
 
@@ -70,12 +70,12 @@
                 </button>
 
                 <button mat-menu-item [routerLink]="['/portfolio']" routerLinkActive="active">
-                    <mat-icon>assignment</mat-icon>
+                    <mat-icon>folder_shared</mat-icon>
                     Portfolio
                 </button>
 
                 <button mat-menu-item [routerLink]="['/blog']" routerLinkActive="active">
-                    <mat-icon>public</mat-icon>
+                    <mat-icon>text_snippet</mat-icon>
                     Blog
                 </button>
 
@@ -91,7 +91,7 @@
     
                 <mat-menu #dashboard="matMenu">
                     <button mat-menu-item [routerLink]="['/dashboard/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <mat-icon>public</mat-icon>
+                        <mat-icon>settings</mat-icon>
                         Manage blog
                     </button>
     
