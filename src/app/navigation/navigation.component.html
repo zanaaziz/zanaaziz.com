@@ -1,8 +1,8 @@
-<mat-toolbar  [@fadeIn]="show ? 'visible' : 'invisible'">
+<mat-toolbar [@fadeIn]="show ? 'visible' : 'invisible'">
     <mat-toolbar-row>
         <a class="brand" [routerLink]="['/']">
             <img src="assets/images/zanaaziz.jpg" alt="Image of Zana Aziz">
-            <span>Zana Aziz</span>
+            <span [@fadeIn]="page.path === '/' ? 'invisible' : 'visible'">Zana Aziz</span>
         </a>
 
         <span class="fill-space"></span>

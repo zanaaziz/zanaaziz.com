@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { SnackService } from '../shared/snack.service';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
+import { PageService } from '../shared/page.service';
 
 @Component({
     selector: 'app-navigation',
@@ -20,7 +21,8 @@ export class NavigationComponent implements OnInit, OnDestroy {
         private auth: AuthService,
         private router: Router,
         private snack: SnackService,
-        private dialog: MatDialog
+		private dialog: MatDialog,
+		public page: PageService
     ) { }
 
     show: boolean = false;

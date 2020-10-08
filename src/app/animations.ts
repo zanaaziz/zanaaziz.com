@@ -21,7 +21,7 @@ export const fadeInAnimation =
         ]),
 
         transition('visible => invisible', [
-            animate('0ms')
+            animate('500ms')
         ])
     ]
 );

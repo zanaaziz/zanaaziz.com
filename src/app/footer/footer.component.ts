@@ -3,6 +3,7 @@ import { NavigationEnd, Router, Event, NavigationStart } from '@angular/router';
 import { fadeInAnimation } from '../animations';
 import { ApiService } from '../shared/api.service';
 import { Subscription } from 'rxjs';
+import { PageService } from '../shared/page.service';
 
 @Component({
     selector: 'app-footer',
@@ -12,7 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class FooterComponent implements OnInit, OnDestroy {
 
-    constructor(private router: Router, private api: ApiService) { }
+    constructor(private router: Router, private api: ApiService, private page: PageService) { }
 
     show: boolean = false;
     home: boolean;
@@ -30,6 +31,8 @@ export class FooterComponent implements OnInit, OnDestroy {
                 }
 
 				if (event instanceof NavigationEnd) {
+					this.page.path = window['location']['pathname'];
+
                     // detect home route
 					if (window['location']['pathname'] === '/') {
                         this.home = true;
