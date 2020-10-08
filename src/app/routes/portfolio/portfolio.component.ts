@@ -20,7 +20,8 @@ export class PortfolioComponent implements OnInit {
 
     showBackground: boolean = false;
     showSkills: boolean = false;
-    showExperience: boolean = false;
+	showExperience: boolean = false;
+	showEducation: boolean = false;
     isMobile: boolean;
     skills: { management: number, angular: number, java: number, javascript: number, python: number, html: number, css: number, php: number } = { management: 85, angular: 90, java: 85, javascript: 90, python: 90, html: 100, css: 100, php: 50 };
 
@@ -46,7 +47,11 @@ export class PortfolioComponent implements OnInit {
 
         setTimeout(() => {
             this.showExperience = true;
-        }, 750);
+		}, 750);
+		
+		setTimeout(() => {
+            this.showEducation = true;
+        }, 1000);
     }
 
 }
