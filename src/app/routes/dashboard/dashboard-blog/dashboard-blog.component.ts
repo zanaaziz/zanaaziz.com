@@ -94,7 +94,11 @@ export class DashboardBlogComponent implements OnInit {
                 this.show = true;
             }, 250);
         }
-    }
+	}
+	
+	slugify(title: string): string {
+		return title.replace(/\s/g, '-').toLowerCase();
+	}
 
     ngOnInit() {
         this.title.setTitle('Manage blog | Zana Aziz');

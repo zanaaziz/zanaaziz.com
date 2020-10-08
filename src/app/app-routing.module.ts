@@ -40,7 +40,11 @@ const routes: Routes = [
     {
         path: 'dashboard/login',
         component: LoginComponent
-    },
+	},
+	{
+		path: 'login',
+		component: LoginComponent
+	},
     {
         path: 'dashboard/blog',
         component: DashboardBlogComponent,
