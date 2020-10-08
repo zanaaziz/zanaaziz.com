@@ -29,7 +29,34 @@ export class DashboardBlogComponent implements OnInit {
 
     posts: MatTableDataSource<Post>;
     columns: string[] = ['id', 'title', 'date', 'actions'];
-    @ViewChild(MatSort, { static: true }) sort: MatSort;
+	@ViewChild(MatSort, { static: true }) sort: MatSort;
+	
+	onToggleLive(post: Post): void {
+        const dialogRef = this.dialog.open(DeleteConfirmDialogModel, {
+			width: '250px',
+			height: '120px'
+		});
+
+        dialogRef.afterClosed()
+		.subscribe(
+            result => {
+                if (result === true) {
+                    this.loading = true;
+                    this.api.postToggleLive(post.id)
+                    .subscribe(
+                        res => {
+                            this.loading = false;
+                            const index = this.posts.data.indexOf(post, 0);
+                            if (index > -1) { this.posts.data[index].live = !this.posts.data[index].live; }
+                            this.posts = new MatTableDataSource(this.posts.data);
+                            this.posts.sort = this.sort;
+                            this.snack.open('Your post has been updated');
+                        }
+                    );
+                }
+            }
+        );
+    }
 
     onDelete(post: Post): void {
         const dialogRef = this.dialog.open(DeleteConfirmDialogModel, {
@@ -67,7 +94,11 @@ export class DashboardBlogComponent implements OnInit {
                 this.show = true;
             }, 250);
         }
-    }
+	}
+	
+	slugify(title: string): string {
+		return title.replace(/\s/g, '-').toLowerCase();
+	}
 
     ngOnInit() {
         this.title.setTitle('Manage blog | Zana Aziz');

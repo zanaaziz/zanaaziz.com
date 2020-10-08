@@ -57,6 +57,10 @@ export class ApiService {
         return this.http.delete(environment.api + '/posts/' + id);
 	}
 
+	postToggleLive(id: number): Observable<Object> {
+        return this.http.put(environment.api + '/posts/' + id + '/live', undefined);
+	}
+
 	login(username: string, password: string): Observable<Object> {
 		return this.http.post(environment.api + '/login', {
 			username: username,

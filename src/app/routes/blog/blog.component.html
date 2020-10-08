@@ -8,17 +8,17 @@
     <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone" *ngFor="let post of posts; let i=index">
         <div class="mdc-layout-grid__inner">
             <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone" [ngStyle]="{ 'height': isMobile ? '7.5em' : '15em' }" *ngIf="post.image_url">
-                <a [routerLink]="['/blog/' + post.title]" [queryParams]="{ id: post.id }"><img [src]="post.image_url"></a>
+                <a [routerLink]="['/blog/' + slugify(post.title)]" [queryParams]="{ id: post.id }"><img [src]="post.image_url"></a>
             </div>
 
             <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
                 <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-                        <a [routerLink]="['/blog/' + post.title]" [queryParams]="{ id: post.id }"><h2>{{ post.title }}</h2></a>
+                        <a [routerLink]="['/blog/' + slugify(post.title)]" [queryParams]="{ id: post.id }"><h2>{{ post.title }}</h2></a>
                     </div>
 
                     <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone">
-                        <a [routerLink]="['/blog/' + post.title]" [queryParams]="{ id: post.id }"><mat-icon>schedule</mat-icon><span class="timestamp" [ngStyle]="{ 'font-size': isMobile ? '0.75em' : '1em' }">{{ calculate(post.date_created) }}</span></a>
+                        <a [routerLink]="['/blog/' + slugify(post.title)]" [queryParams]="{ id: post.id }"><mat-icon>schedule</mat-icon><span class="timestamp" [ngStyle]="{ 'font-size': isMobile ? '0.75em' : '1em' }">{{ calculate(post.date_created) }}</span></a>
                     </div>
                 </div>
             </div>

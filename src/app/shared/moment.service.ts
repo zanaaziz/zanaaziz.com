@@ -12,5 +12,10 @@ export class MomentService {
         moment.locale('en');
         var time = moment.utc(timestamp).fromNow();
         return time.charAt(0).toUpperCase() + time.slice(1);
-    }
+	}
+	
+	calculateDifference(a: string, b: string): number {
+		moment.locale('en');
+		return moment(a).diff(b, 'months');
+	}
 }

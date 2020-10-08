@@ -1,11 +1,11 @@
 <footer [ngClass]="{'push-to-bottom': home}" [@fadeIn]="show ? 'visible' : 'invisible'">
 	<ul>
 		<li>
-			<a href="https://github.com/zanaaziz" target="_blank" matTooltip="GitHub" matTooltipPosition="before"><i class="fab fa-github-square"></i></a>
+			<a href="https://github.com/zanaaziz" target="_blank" matTooltip="GitHub" matTooltipPosition="before" [matTooltipDisabled]="!show"><i class="fab fa-github-square"></i></a>
 		</li>
 
 		<li>
-			<a href="https://www.linkedin.com/in/zanaaziz" target="_blank" matTooltip="LinkedIn" matTooltipPosition="after"><i class="fab fa-linkedin"></i></a>
+			<a href="https://www.linkedin.com/in/zanaaziz" target="_blank" matTooltip="LinkedIn" matTooltipPosition="after" [matTooltipDisabled]="!show"><i class="fab fa-linkedin"></i></a>
 		</li>
 	</ul>
 
