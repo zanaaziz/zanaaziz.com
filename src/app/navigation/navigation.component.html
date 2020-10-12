@@ -9,41 +9,41 @@
 
         <!-- desktop -->
         <ng-container *ngIf="!isMobile">
-            <button mat-button [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a mat-button [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <mat-icon>home</mat-icon>
                 Home
-            </button>
+            </a>
 
-            <button mat-button [routerLink]="['/about']" routerLinkActive="active">
+            <a mat-button [routerLink]="['/about']" routerLinkActive="active">
                 <mat-icon>account_circle</mat-icon>
                 About
-            </button>
+            </a>
 
-            <button mat-button [routerLink]="['/portfolio']" routerLinkActive="active">
+            <a mat-button [routerLink]="['/portfolio']" routerLinkActive="active">
                 <mat-icon>folder_shared</mat-icon>
                 Portfolio
-            </button>
+            </a>
 
-            <button mat-button [routerLink]="['/blog']" routerLinkActive="active">
+            <a mat-button [routerLink]="['/blog']" routerLinkActive="active">
                 <mat-icon>text_snippet</mat-icon>
                 Blog
-            </button>
+            </a>
 
-            <button mat-button [routerLink]="['/contact']" routerLinkActive="active">
+            <a mat-button [routerLink]="['/contact']" routerLinkActive="active">
                 <mat-icon>forum</mat-icon>
                 Contact
-            </button>
+            </a>
 
-            <button mat-button [matMenuTriggerFor]="dashboard" *ngIf="authenticated">
+            <a mat-button [matMenuTriggerFor]="dashboard" *ngIf="authenticated">
                 <mat-icon>build</mat-icon>
                 Dashboard
-            </button>
+            </a>
 
             <mat-menu #dashboard="matMenu">
-                <button mat-menu-item [routerLink]="['/dashboard/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a mat-menu-item [routerLink]="['/dashboard/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                     <mat-icon>settings</mat-icon>
                     Manage blog
-                </button>
+                </a>
 
                 <button mat-menu-item (click)="onLogout()">
                     <mat-icon>exit_to_app</mat-icon>
@@ -59,30 +59,30 @@
             </button>
 
             <mat-menu #menu="matMenu">
-                <button mat-menu-item [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a mat-menu-item [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                     <mat-icon>home</mat-icon>
                     Home
-                </button>
+                </a>
 
-                <button mat-menu-item [routerLink]="['/about']" routerLinkActive="active">
+                <a mat-menu-item [routerLink]="['/about']" routerLinkActive="active">
                     <mat-icon>account_circle</mat-icon>
                     About
-                </button>
+                </a>
 
-                <button mat-menu-item [routerLink]="['/portfolio']" routerLinkActive="active">
+                <a mat-menu-item [routerLink]="['/portfolio']" routerLinkActive="active">
                     <mat-icon>folder_shared</mat-icon>
                     Portfolio
-                </button>
+                </a>
 
-                <button mat-menu-item [routerLink]="['/blog']" routerLinkActive="active">
+                <a mat-menu-item [routerLink]="['/blog']" routerLinkActive="active">
                     <mat-icon>text_snippet</mat-icon>
                     Blog
-                </button>
+                </a>
 
-                <button mat-menu-item [routerLink]="['/contact']" routerLinkActive="active">
+                <a mat-menu-item [routerLink]="['/contact']" routerLinkActive="active">
                     <mat-icon>forum</mat-icon>
                     Contact
-                </button>
+                </a>
 
                 <button mat-menu-item [matMenuTriggerFor]="dashboard" *ngIf="authenticated">
                     <mat-icon>build</mat-icon>
@@ -90,10 +90,10 @@
                 </button>
     
                 <mat-menu #dashboard="matMenu">
-                    <button mat-menu-item [routerLink]="['/dashboard/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                    <a mat-menu-item [routerLink]="['/dashboard/blog']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                         <mat-icon>settings</mat-icon>
                         Manage blog
-                    </button>
+                    </a>
     
                     <button mat-menu-item (click)="onLogout()">
                         <mat-icon>exit_to_app</mat-icon>

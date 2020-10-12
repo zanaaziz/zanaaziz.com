@@ -53,7 +53,8 @@ export class LoginComponent implements OnInit {
                 
             },
             err => {
-                this.loading = false;
+				this.loading = false;
+				this.snack.open('Either you\'re username or password is incorrect');
                 console.log(err);
                 
             }

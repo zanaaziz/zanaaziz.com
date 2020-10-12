@@ -2,8 +2,8 @@
     <div>
         <span style="font-weight: 500;" [ngStyle]="{ 'font-size': isMobile ? '2em' : '3em' }" [@fadeIn]="showGreeting ? 'visible' : 'invisible'">Hi there </span><span style="font-weight: 500;" [ngStyle]="{ 'font-size': isMobile ? '2em' : '3em' }" [@fadeIn]="showSmiley ? 'visible' : 'invisible'">:)</span>
         <h1 [ngStyle]="{ 'font-size': isMobile ? '2.5em' : '5em' }" [@fadeIn]="showName ? 'visible' : 'invisible'">I'm Zana Aziz</h1>
-        <h2 [ngStyle]="{ 'font-size': isMobile ? '1.5em' : '2em' }" [@fadeIn]="showTitle ? 'visible' : 'invisible'">Studying BSc (Honours) in Computing</h2>
+        <h2 [ngStyle]="{ 'font-size': isMobile ? '1.25em' : '1.73em' }" [@fadeIn]="showTitle ? 'visible' : 'invisible'">Studying BSc (Honours) in Computing</h2>
 
-        <button mat-flat-button color="primary" [routerLink]="['/about']" [@fadeIn]="showButton ? 'visible' : 'invisible'"><mat-icon>person_add</mat-icon>Get to know me</button>
+        <a mat-flat-button color="primary" [routerLink]="['/about']" [@fadeIn]="showButton ? 'visible' : 'invisible'"><mat-icon>person_add</mat-icon>Read my story</a>
     </div>
 </div>

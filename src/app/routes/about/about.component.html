@@ -10,13 +10,13 @@
 
         <p [@fadeIn]="showP2 ? 'visible' : 'invisible'">
 			I continued on to explore different areas of development in web, software, and scientific computing.<br>
-			There was a great sense of satisfaction in learning different languages and gaining a new perspective each time while doing so.
+			There was a great sense of satisfaction in learning different languages and gaining a new perspective each time.
         </p>
 
         <p class="bold" [@fadeIn]="showP3 ? 'visible' : 'invisible'">
             My mission statement is to produce true utility through software.
         </p>
 
-        <button mat-flat-button color="primary" [routerLink]="['/portfolio']" [@fadeIn]="showButton ? 'visible' : 'invisible'"><mat-icon>subject</mat-icon><span>Read my Portfolio</span></button>
+        <a mat-flat-button color="primary" [routerLink]="['/portfolio']" [@fadeIn]="showButton ? 'visible' : 'invisible'"><mat-icon>subject</mat-icon><span>Read my Portfolio</span></a>
     </div>
 </div>

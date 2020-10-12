@@ -11,6 +11,16 @@
     margin: 2.5em 0;
 }
 
+.v-align {
+	i, span {
+		vertical-align: middle;
+	}
+
+	i {
+		margin-right: 0.5em;
+	}
+}
+
 p {
     line-height: 1.5em;
 }
@@ -80,7 +90,7 @@ p {
 	}
 	
 	ul {
-		padding: 0 1em;
+		padding: 0 0 0 1em;
 
 		li:not(:last-child) {
 			padding-bottom: 0.5em;
