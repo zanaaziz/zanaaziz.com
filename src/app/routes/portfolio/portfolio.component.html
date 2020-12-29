@@ -10,9 +10,14 @@
 			As a <b>software developer</b>, I've taken <b>lead roles</b> in the creation of <b>large-scale enterprise-level applications</b> with <b>thousands</b> of <b>active users</b>.
 		</p>
 		
-		<a mat-flat-button class="v-align" color="primary" href="https://github.com/zanaaziz" target="_blank">
+		<a mat-flat-button class="v-align button-margin-right" [ngStyle]="{ 'margin-bottom': isMobile ? '1em' : '0' }" color="primary" href="https://github.com/zanaaziz" target="_blank">
 			<i class="fab fa-github"></i>
 			<span>Visit my GitHub</span>
+		</a>
+
+		<a mat-stroked-button class="v-align" color="primary" href="https://www.linkedin.com/in/zanaaziz" target="_blank">
+			<i class="fab fa-linkedin"></i>
+			<span>Connect with me on LinkedIn</span>
 		</a>
     </div>
 
@@ -36,6 +41,15 @@
             
             <mat-progress-bar color="primary" mode="determinate" [value]="skills['angular']"></mat-progress-bar>
 		</div>
+
+		<div class="skill">
+            <div class="details">
+                <h3>Java</h3>
+                <h3>{{ skills['java'] }}&#37;</h3>
+            </div>
+
+            <mat-progress-bar color="primary" mode="determinate" [value]="skills['java']"></mat-progress-bar>
+        </div>
 		
 		<div class="skill">
             <div class="details">
@@ -44,15 +58,15 @@
             </div>
 
             <mat-progress-bar color="primary" mode="determinate" [value]="skills['python']"></mat-progress-bar>
-        </div>
-
-        <div class="skill">
+		</div>
+		
+		<div class="skill">
             <div class="details">
-                <h3>Java</h3>
-                <h3>{{ skills['java'] }}&#37;</h3>
+                <h3>Flask-RESTful</h3>
+                <h3>{{ skills['flask'] }}&#37;</h3>
             </div>
 
-            <mat-progress-bar color="primary" mode="determinate" [value]="skills['java']"></mat-progress-bar>
+            <mat-progress-bar color="primary" mode="determinate" [value]="skills['python']"></mat-progress-bar>
         </div>
 
         <div class="skill">
@@ -81,15 +95,6 @@
 
             <mat-progress-bar color="primary" mode="determinate" [value]="skills['javascript']"></mat-progress-bar>
         </div>
-
-        <div class="skill">
-            <div class="details">
-                <h3>PHP</h3>
-                <h3>{{ skills['php'] }}&#37;</h3>
-            </div>
-
-            <mat-progress-bar color="primary" mode="determinate" [value]="skills['php']"></mat-progress-bar>
-        </div>
     </div>
 
     <div class="mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-phone" [@fadeIn]="showExperience ? 'visible' : 'invisible'">
@@ -97,7 +102,7 @@
 
         <div class="role">
             <div class="details">
-                <h3><mat-icon>bookmark</mat-icon><span>Web &amp; Software Developer</span></h3>
+                <h3><mat-icon>bookmark</mat-icon><span>Software Engineer</span></h3>
                 <h3><mat-icon>account_balance</mat-icon><a href="https://devcentrehouse.eu" target="_blank"><span>Dev Centre House Ltd.</span><mat-icon>link</mat-icon></a></h3>
                 <h3><mat-icon>room</mat-icon><span>Unit 19D, Rosemount Park Drive, Blanchardstown, Dublin 11, D11 WP7V, Ireland.</span></h3>
                 <h3><mat-icon>today</mat-icon><span>June 2018 &mdash; September 2020 &middot; 2 years 4 months</span></h3>
@@ -125,10 +130,9 @@
 
         <div class="role">
             <div class="details">
-                <h3><mat-icon>school</mat-icon><a href="https://www.ncirl.ie/Courses/NCI-Course-Details/course/BSHC" target="_blank"><span>BSc (Honours) in Computing &middot; Data Analytics</span><mat-icon>link</mat-icon></a></h3>
+                <h3><mat-icon>school</mat-icon><a href="https://www.ncirl.ie/Courses/NCI-Course-Details/course/BSHC" target="_blank"><span>BSc (Honours) in Computing</span><mat-icon>link</mat-icon></a></h3>
                 <h3><mat-icon>account_balance</mat-icon><a href="https://ncirl.ie" target="_blank"><span>National College of Ireland</span><mat-icon>link</mat-icon></a></h3>
                 <h3><mat-icon>room</mat-icon><span>Mayor Street, IFSC, Dublin 1, Ireland.</span></h3>
-                <h3><mat-icon>today</mat-icon><span>2016 &mdash; 2021</span></h3>
             </div>
         </div>
     </div>
