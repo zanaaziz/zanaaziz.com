@@ -23,7 +23,7 @@ export class PortfolioComponent implements OnInit {
 	showExperience: boolean = false;
 	showEducation: boolean = false;
     isMobile: boolean;
-    skills: { management: number, angular: number, java: number, javascript: number, python: number, flask: number, html: number, css: number } = { management: 85, angular: 100, java: 90, javascript: 95, python: 90, flask: 90, html: 100, css: 100 };
+    skills: { management: number, angular: number, java: number, javascript: number, python: number, flask: number, html: number, css: number, php: number } = { management: 85, angular: 100, java: 90, javascript: 95, python: 90, flask: 90, html: 100, css: 100, php: 85 };
 
     ngOnInit() {
         // set title
